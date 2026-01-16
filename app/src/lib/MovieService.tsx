@@ -42,7 +42,6 @@ export const handleBrowseMovies = async (filters: any) => {
   try {
     // Map UI filters to GQL variables
     const variables: any = {
-      limit: 30,
     };
     if (filters.title) variables.partialTitle = filters.title;
     if (filters.minYear) variables.minDate = `${filters.minYear}-01-01`;
