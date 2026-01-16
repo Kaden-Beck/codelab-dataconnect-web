@@ -1,31 +1,15 @@
-/**
- * Copyright 2026 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React, { useEffect, useState, useContext } from 'react';
-import { signInWithPopup, GoogleAuthProvider, signOut, User } from 'firebase/auth';
+import { Link, useLocation } from 'react-router-dom';
+import { GoogleAuthProvider, signInWithPopup, signOut, User } from 'firebase/auth';
 import { AuthContext } from '@/lib/firebase';
-import { Link } from 'react-router-dom';
 import { handleAuthStateChange } from '@/lib/MovieService';
-import { FaSearch } from 'react-icons/fa';
+import { Search, Film, User as UserIcon, LogOut, LogIn, History } from 'lucide-react';
 import firebaseLogo from '@/assets/firebase_logo.svg';
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
   const auth = useContext(AuthContext);
-
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = handleAuthStateChange(auth, setUser);
@@ -37,46 +21,88 @@ export default function Navbar() {
     await signInWithPopup(auth, provider);
   }
 
-  async function handleSignOut() {
-    await signOut(auth);
-  }
-
   return (
-    <nav className="bg-black p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <Link to="/" className="flex items-center">
-            <img src={firebaseLogo} alt="Firebase Logo" width={30} height={30} className="mr-2" />
-            <span className=" text-white text-lg font-bold hidden md:block">FriendlyMovies</span>
+    // "Next.js Style" Header: Sticky, Blur, Border-bottom
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 max-w-screen-2xl items-center justify-between px-4 mx-auto">
+        
+        {/* Logo Section */}
+        <div className="mr-4 flex">
+          <Link to="/" className="mr-6 flex items-center space-x-2">
+            <img src={firebaseLogo} alt="Logo" className="h-6 w-6" />
+            <span className="hidden font-bold sm:inline-block text-lg tracking-tight">
+              FriendlyMovies
+            </span>
           </Link>
-          <Link to="/vectorsearch" className="text-gray-200 hover:text-white">
-            Vector Search
-          </Link>
-        </div>
-        <Link to="/advancedsearch" className="flex items-center text-gray-200 hover:text-white mx-auto">
-          <FaSearch className="mr-2" />
-          Advanced Search
-        </Link>
-        <div className="flex items-center space-x-4">
-          {user && (
-            <Link to="/myprofile" className="text-yellow-500 hover:text-yellow-400">
-              My Profile
+          
+          {/* Main Nav Links */}
+          <nav className="flex items-center gap-6 text-sm font-medium">
+            <Link
+              to="/browse"
+              className={`transition-colors hover:text-foreground/80 ${location.pathname === '/browse' ? 'text-foreground' : 'text-foreground/60'}`}
+            >
+              Browse
             </Link>
-          )}
+            <Link
+              to="/search-fts"
+              className={`transition-colors hover:text-foreground/80 ${location.pathname === '/search-fts' ? 'text-foreground' : 'text-foreground/60'}`}
+            >
+              Search
+            </Link>
+          </nav>
+        </div>
+
+        {/* Right Section: Search Icon & Auth */}
+        <div className="flex items-center gap-2">
+            <Link to="/search-fts">
+                <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9">
+                    <Search className="h-4 w-4" />
+                </div>
+            </Link>
+
           {user ? (
-            <>
-              <span className="text-gray-200 mr-4">Hello, {user.displayName}</span>
-              <button onClick={handleSignOut} className="text-gray-200 hover:text-white">
-                Sign Out
-              </button>
-            </>
+            <div className="flex items-center gap-4">
+               {/* User Profile Link */}
+               <Link 
+                 to="/history" 
+                 className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground/60 hover:text-foreground transition-colors"
+                >
+                  <History className="h-4 w-4" />
+                  <span className="hidden lg:inline">History</span>
+               </Link>
+
+              <div className="flex items-center gap-2 border-l border-border pl-4">
+                <span className="text-sm text-muted-foreground hidden sm:inline-block">
+                  {user.displayName?.split(' ')[0]}
+                </span>
+                
+                {user.photoURL ? (
+                    <img src={user.photoURL} alt="User" className="h-8 w-8 rounded-full border border-border" />
+                ) : (
+                    <div className="h-8 w-8 rounded-full bg-secondary flex items-center justify-center">
+                        <UserIcon className="h-4 w-4" />
+                    </div>
+                )}
+
+                <button
+                  onClick={() => signOut(auth)}
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-destructive/10 hover:text-destructive h-9 w-9"
+                  title="Sign Out"
+                >
+                  <LogOut className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
           ) : (
-            <button onClick={handleSignIn} className="text-gray-200 hover:text-white">
-              Sign In with Google
+            <button
+              onClick={handleSignIn}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
+            >
+              <LogIn className="mr-2 h-4 w-4" /> Sign In
             </button>
           )}
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

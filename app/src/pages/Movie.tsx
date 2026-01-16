@@ -1,303 +1,131 @@
-/**
- * Copyright 2026 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { MdFavorite, MdFavoriteBorder, MdStar } from "react-icons/md";
-import { onAuthStateChanged, User } from "firebase/auth";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { MdStar, MdCalendarToday, MdMovie, MdAdd } from "react-icons/md";
 import { AuthContext } from "@/lib/firebase";
-import NotFound from "./NotFound";
-import {
-  handleGetMovieById,
-  handleGetIfFavoritedMovie,
-  handleAddFavoritedMovie,
-  handleDeleteFavoritedMovie,
-  handleAddReview,
-  handleDeleteReview,
-  fetchSimilarMovies,
-} from "@/lib/MovieService";
-import MovieCard from "@/components/moviecard";
+import { handleGetMovieById, handleAddWatch, handleAddReview } from "@/lib/MovieService";
+import { User } from "firebase/auth";
 
 export default function MoviePage() {
-  const { id } = useParams() as { id: string };
+  const { id } = useParams<{ id: string }>();
   const auth = useContext(AuthContext);
-
+  const [movie, setMovie] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [authUser, setAuthUser] = useState<User | null>(null);
-  const [isFavorited, setIsFavorited] = useState(false);
-  const [reviewText, setReviewText] = useState("");
-  const [rating, setRating] = useState(0);
+  
+  // Watch Modal State
+  const [showWatchModal, setShowWatchModal] = useState(false);
+  const [watchFormat, setWatchFormat] = useState("home");
 
-  const [movie, setMovie] = useState(null);
-  const [userReview, setUserReview] = useState(null);
-  const [similarMovies, setSimilarMovies] = useState([]);
-
-  // Fetch the movie details and check if it's favorited when the user is authenticated
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-        handleGetIfFavoritedMovie(id).then(setIsFavorited);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [id, auth]);
-
-  // Fetch movie details and the user's review
   useEffect(() => {
     if (id) {
-      handleGetMovieById(id).then((movieData) => {
-        setMovie(movieData);
-        if (movieData?.reviews) {
-          const userReview = movieData.reviews.find(
-            (review) => review.user.id === authUser?.uid
-          );
-          fetchSimilarMovies(movieData.description).then((similarMovies) => {
-            const similarResults = similarMovies?.filter(
-              (movie) => movie.id !== movieData.id
-            );
-            setSimilarMovies(
-              similarResults && similarResults.length > 1 ? similarResults : []
-            );
-            setMovie(movieData);
-          });
-          setUserReview(userReview || null);
-        }
+      handleGetMovieById(id).then((data) => {
+        setMovie(data);
         setLoading(false);
       });
     }
-  }, [id, authUser]);
+  }, [id]);
 
-  // Toggle favorite status for the movie
-  const handleFavoriteToggle = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    if (!authUser) return;
-
+  const onLogWatch = async () => {
+    if(!id) return;
     try {
-      if (isFavorited) {
-        await handleDeleteFavoritedMovie(id);
-      } else {
-        await handleAddFavoritedMovie(id);
-      }
-      setIsFavorited(!isFavorited);
-    } catch (error) {
-      console.error("Error updating favorite status:", error);
+        await handleAddWatch(id, watchFormat, new Date().toISOString().split('T')[0]);
+        alert("Logged to history!");
+        setShowWatchModal(false);
+    } catch(e) {
+        alert("Error logging watch");
     }
-  };
+  }
 
-  // Submit a new review
-  const handleReviewSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!authUser) return;
-
-    try {
-      await handleAddReview(id, rating, reviewText);
-      setReviewText("");
-      setRating(0);
-      const updatedMovie = await handleGetMovieById(id);
-      setMovie(updatedMovie);
-    } catch (error) {
-      console.error("Error submitting review:", error);
-    }
-  };
-
-  // Delete the user's review
-  const handleReviewDelete = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    if (!authUser || !userReview) return;
-
-    try {
-      await handleDeleteReview(id);
-      setUserReview(null);
-      const updatedMovie = await handleGetMovieById(id);
-      setMovie(updatedMovie);
-    } catch (error) {
-      console.error("Error deleting review:", error);
-    }
-  };
-
-  if (loading) return <p>Loading...</p>;
-  if (!movie) return <NotFound />;
+  if (loading) return <div className="text-white p-10">Loading...</div>;
+  if (!movie) return <div className="text-white p-10">Movie not found</div>;
 
   return (
     <div className="container mx-auto p-4 bg-gray-900 min-h-screen text-white">
-      <div className="flex flex-col md:flex-row mb-8">
-        <img
-          className="w-full md:w-1/3 object-cover rounded-lg shadow-md"
-          src={movie.imageUrl}
-          alt={movie.title}
-        />
-        <div className="md:ml-8 mt-4 md:mt-0 flex-1">
-          <h1 className="text-5xl font-bold mb-2">{movie.title}</h1>
-          <div className="flex items-center text-yellow-500 mb-4">
-            <MdStar className="text-yellow-500" size={24} />
-            <span className="ml-1 text-gray-400 text-lg">{movie.rating}</span>
-          </div>
-          <p className="text-lg mb-4 p-4 bg-gray-800 rounded-lg">
-            {movie.description}
-          </p>
-          <div className="text-sm space-y-2">
-            <p>
-              <span className="font-bold">Genre:</span> {movie.genre}
-            </p>
-            <p>
-              <span className="font-bold">Release Year:</span>{" "}
-              {movie.releaseYear}
-            </p>
-            <p>
-              <span className="font-bold">Director:</span>{" "}
-              {movie.metadata[0]?.director}
-            </p>
-            <p>
-              <span className="font-bold">Tags:</span> {movie.tags?.join(", ")}
-            </p>
-          </div>
-          <div className="mt-4 flex space-x-4">
-            <button
-              className="flex items-center justify-center p-1 text-red-500 hover:text-red-600 transition-colors duration-200"
-              aria-label="Favorite"
-              onClick={handleFavoriteToggle}
-            >
-              {isFavorited ? (
-                <MdFavorite size={24} />
-              ) : (
-                <MdFavoriteBorder size={24} />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-2">Main Actors</h2>
-        <div className="flex overflow-x-auto space-x-4">
-          {movie.mainActors.map((actor) => (
-            <Link key={actor.id} to={`/actor/${actor.id}`}>
-              <div className="flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer w-32">
-                <img
-                  className="w-full h-32 object-cover"
-                  src={actor.imageUrl}
-                  alt={actor.name}
-                />
-                <div className="p-2 text-center">
-                  <h3 className="font-bold text-sm text-white">{actor.name}</h3>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-2">Supporting Actors</h2>
-        <div className="flex overflow-x-auto space-x-4">
-          {movie.supportingActors.map((actor) => (
-            <Link key={actor.id} to={`/actor/${actor.id}`}>
-              <div className="flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer w-32">
-                <img
-                  className="w-full h-32 object-cover"
-                  src={actor.imageUrl}
-                  alt={actor.name}
-                />
-                <div className="p-2 text-center">
-                  <h3 className="font-bold text-sm text-white">{actor.name}</h3>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-2">User Reviews</h2>
-        {!userReview ? (
-          <form
-            onSubmit={handleReviewSubmit}
-            className="mb-4 p-4 bg-gray-800 rounded-lg shadow-md"
-          >
-            <h3 className="text-xl font-bold mb-2">Leave a Review</h3>
-            <textarea
-              className="w-full p-2 rounded-lg bg-gray-700 text-white mb-2"
-              value={reviewText}
-              onChange={(e) => setReviewText(e.target.value)}
-              placeholder="Write your review here..."
-            />
-            <div className="flex items-center mb-2">
-              <label className="mr-2">Rating:</label>
-              <input
-                type="number"
-                className="p-1 rounded-lg bg-gray-700 text-white"
-                value={rating}
-                onChange={(e) => setRating(Number(e.target.value))}
-                min="1"
-                max="10"
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"
-            >
-              Submit Review
-            </button>
-          </form>
-        ) : null}
-
-        {movie.reviews.map((review) => (
-          <div
-            key={review.id}
-            className="mb-4 p-4 bg-gray-800 rounded-lg shadow-md"
-          >
-            <p className="font-bold">{review.user.username}</p>
-            <p className="text-sm">{review.reviewDate}</p>
-            <p className="mt-2">{review.reviewText}</p>
-            <div className="flex items-center text-yellow-500 mt-2">
-              <MdStar className="text-yellow-500" size={20} />
-              <span className="ml-1 text-gray-400">{review.rating}</span>
-            </div>
-            {userReview?.id === review.id && (
-              <button
-                className="mt-2 text-red-500 hover:text-red-600 transition-colors duration-200"
-                onClick={handleReviewDelete}
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full md:w-1/3">
+           
+          <img className="w-full rounded-lg shadow-2xl" src={movie.posterUrl} alt={movie.title} />
+          
+          {auth.currentUser && (
+              <button 
+                onClick={() => setShowWatchModal(true)}
+                className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition"
               >
-                Delete Review
+                <MdAdd size={24} /> Log as Watched
               </button>
-            )}
+          )}
+        </div>
+
+        <div className="w-full md:w-2/3">
+          <h1 className="text-5xl font-bold mb-2">{movie.title}</h1>
+          <div className="flex items-center gap-4 text-gray-400 mb-6">
+            <span className="border border-gray-600 px-2 py-0.5 rounded text-sm">{movie.rating}</span>
+            <span className="flex items-center gap-1"><MdCalendarToday /> {new Date(movie.releaseDate).getFullYear()}</span>
+            <span className="flex items-center gap-1"><MdMovie /> {movie.genre}</span>
+             {movie.stats?.avgRating && (
+                <span className="flex items-center gap-1 text-yellow-500 font-bold">
+                    <MdStar /> {(movie.stats.avgRating / 2).toFixed(1)}/5
+                </span>
+             )}
           </div>
-        ))}
-        {similarMovies && similarMovies.length > 1 ? (
-          <div className="my-10">
-            <h2 className="text-2xl font-bold mb-2">Similar Movies</h2>
-            <div className="grid grid-cols-4 gap-2">
-              {similarMovies.map((similarMovie) => (
-                <MovieCard
-                  id={similarMovie.id}
-                  title={similarMovie.title || "TBA"}
-                  imageUrl={similarMovie.imageUrl}
-                  rating={similarMovie.rating}
-                  genre={similarMovie.genre}
-                  tags={similarMovie.tags}
-                />
-              ))}
-            </div>
+
+          <p className="text-lg leading-relaxed text-gray-300 mb-8">{movie.description}</p>
+          
+          <h2 className="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">Top Cast</h2>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            {movie.roles.map((role: any) => (
+                <div key={role.actor.id} className="text-center bg-gray-800 p-3 rounded-lg">
+                    <img src={role.actor.imageUrl} alt={role.actor.name} className="w-20 h-20 rounded-full mx-auto object-cover mb-2" />
+                    <div className="font-bold text-sm">{role.actor.name}</div>
+                    <div className="text-xs text-gray-400">{role.character}</div>
+                </div>
+            ))}
           </div>
-        ) : null}
+
+          <h2 className="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">Reviews</h2>
+          <div className="space-y-4">
+            {movie.reviews.length === 0 && <p className="text-gray-500">No reviews yet.</p>}
+            {movie.reviews.map((review: any) => (
+                <div key={review.id} className="bg-gray-800 p-4 rounded-lg">
+                    <div className="flex justify-between items-start">
+                        <span className="font-bold text-blue-400">{review.user.username}</span>
+                        <div className="flex text-yellow-500">
+                             {Array.from({ length: 5 }).map((_, i) => (
+                                <MdStar key={i} className={i < Math.round(review.rating / 2) ? "opacity-100" : "opacity-30"} />
+                            ))}
+                        </div>
+                    </div>
+                    <p className="mt-2 text-gray-300">{review.review}</p>
+                </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Watch Modal */}
+      {showWatchModal && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <div className="bg-gray-800 p-6 rounded-lg w-full max-w-md">
+                <h3 className="text-xl font-bold mb-4">Log Watch History</h3>
+                <label className="block mb-2">Format</label>
+                <select 
+                    value={watchFormat} 
+                    onChange={(e) => setWatchFormat(e.target.value)}
+                    className="w-full p-2 rounded bg-gray-700 text-white mb-6"
+                >
+                    <option value="home">Home (Streaming/TV)</option>
+                    <option value="theater">Theater</option>
+                    <option value="theater-premium">IMAX / Premium</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+                <div className="flex gap-2 justify-end">
+                    <button onClick={() => setShowWatchModal(false)} className="px-4 py-2 hover:bg-gray-700 rounded">Cancel</button>
+                    <button onClick={onLogWatch} className="px-4 py-2 bg-blue-600 rounded">Save</button>
+                </div>
+            </div>
+        </div>
+      )}
     </div>
   );
 }

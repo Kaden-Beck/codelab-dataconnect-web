@@ -13,6 +13,7 @@
     "@movie/dataconnect": "file:src/lib/dataconnect-sdk",
     "dotenv": "^17.2.3",
     "firebase": "^12.8.0",
+    "lucide-react": "^0.562.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
