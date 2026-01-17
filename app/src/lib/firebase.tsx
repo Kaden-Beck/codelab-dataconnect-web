@@ -21,6 +21,7 @@ import {
   getDataConnect,
 } from "firebase/data-connect";
 import { connectorConfig } from '@movie/dataconnect';
+// import { getAI, getGenerativeModel, GoogleAIBackend } from "firebase/ai";
 import { createContext } from "react";
 
 const firebaseConfig = {
@@ -31,9 +32,18 @@ const firebaseConfig = {
   messagingSenderId: "SENDER_ID",
   appId: "APP_ID"
 };
-
 const firebaseApp =
   getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+
+// const ai = getAI(firebaseApp);
+
+// export const getSearchEnabledModel = () => {
+//   return getGenerativeModel(ai, {
+//     model: "gemini-3-flash-preview", 
+//     tools: [{ googleSearch: {} }]
+//   });
+// };
+
 
 const auth = getAuth(firebaseApp);
 const dataconnect = getDataConnect(firebaseApp, connectorConfig);
