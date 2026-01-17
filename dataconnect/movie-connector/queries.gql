@@ -42,13 +42,10 @@ query HomePage @auth(level: PUBLIC) {
 	}
 }
 
-query SearchMovies($query: String!) @auth(level: PUBLIC) {
-	movies: movies_embedding_similarity(
-		compare_embed: { text: $query, model: "text-embedding-005" }
-		limit: 10
-	) {
+
+query GetMovies($ids: [String!]) @auth(level: PUBLIC) {
+	movies(where: {id: {in: $ids}}) {
 		...MovieOverview
-		description
 	}
 }
 
@@ -93,7 +90,6 @@ query WatchHistoryPage($limit: Int) @auth(level: USER) {
     }
 }
 
-
 # Return a filtered of movies based on criteria
 query BrowseMovies(
 	# partial title to match - omit for all titles
@@ -124,11 +120,6 @@ query BrowseMovies(
 	}
 }
 
-query GetMovies($ids: [String!]) @auth(level: PUBLIC) {
-	movies(where: {id: {in: $ids}}) {
-		...MovieOverview
-	}
-}
 
 query DetailedWatchHistory @auth(level: USER) {
 	watches(
@@ -150,40 +141,6 @@ query DetailedWatchHistory @auth(level: USER) {
 	}
 }
 
-
-# 1. VECTOR SEARCH
-# Uses the "text-embedding-005" model configured in your connector.yaml
-query SearchMoviesVector($query: String!) @auth(level: PUBLIC) {
-  movies_embedding_similarity(
-    compare_embed: { model: "text-embedding-005", text: $query }
-    method: L2
-    within: 2
-    limit: 10
-  ) {
-    ...MovieOverview
-    description
-  }
-}
-
-# 2. FULL TEXT SEARCH (FTS)
-# Uses the @searchable directive on Title and Description
-query SearchMoviesFTS($query: String!) @auth(level: PUBLIC) {
-  # Standard Query Parsing (+ and - operators)
-  query: movies_search(query: $query, queryFormat: QUERY, limit: 5) {
-    ...MovieOverview
-  }
-  # Exact Phrase Match
-  phrase: movies_search(query: $query, queryFormat: PHRASE, limit: 5) {
-    ...MovieOverview
-  }
-  # Fuzzy/Plain Match
-  plain: movies_search(query: $query, queryFormat: PLAIN, limit: 5) {
-    ...MovieOverview
-  }
-}
-
-# 3. ADVANCED FILTER SEARCH
-# Manual filtering by Year, Rating, Genre, and specific fields
 query SearchAll(
   $titleInput: String
   $minDate: Date!
@@ -213,5 +170,39 @@ query SearchAll(
     id
     name
     imageUrl
+  }
+}
+
+query SearchMovies($query: String!) @auth(level: PUBLIC) {
+	movies: movies_embedding_similarity(
+		compare_embed: { text: $query, model: "text-embedding-005" }
+		limit: 10
+	) {
+		...MovieOverview
+		description
+	}
+}
+
+query SearchMoviesVector($query: String!) @auth(level: PUBLIC) {
+  movies_embedding_similarity(
+    compare_embed: { model: "text-embedding-005", text: $query }
+    method: L2
+    within: 2
+    limit: 10
+  ) {
+    ...MovieOverview
+    description
+  }
+}
+
+query SearchMoviesFTS($query: String!) @auth(level: PUBLIC) {
+  query: movies_search(query: $query, queryFormat: QUERY, limit: 5) {
+    ...MovieOverview
+  }
+  phrase: movies_search(query: $query, queryFormat: PHRASE, limit: 5) {
+    ...MovieOverview
+  }
+  plain: movies_search(query: $query, queryFormat: PLAIN, limit: 5) {
+    ...MovieOverview
   }
 }

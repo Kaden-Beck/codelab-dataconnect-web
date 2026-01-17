@@ -8,22 +8,18 @@ import { Search, Loader2 } from 'lucide-react';
 
 export default function FullTextSearchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  
-  // The "source of truth" is the URL
+
   const query = searchParams.get('q') || '';
-  
-  // Local state for the input field on this page
+
   const [localQuery, setLocalQuery] = useState(query);
   
   const [results, setResults] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
-  // Sync local input if the URL changes (e.g. from Header search)
   useEffect(() => {
     setLocalQuery(query);
   }, [query]);
 
-  // Fetch Data when URL query changes
   useEffect(() => {
     if (query) {
       setLoading(true);
@@ -34,11 +30,9 @@ export default function FullTextSearchPage() {
     }
   }, [query]);
 
-  // Handle form submission on this page
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (localQuery.trim()) {
-      // Update the URL, which triggers the useEffect above
       setSearchParams({ q: localQuery.trim() });
     }
   };
@@ -63,8 +57,7 @@ export default function FullTextSearchPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <h1 className="text-3xl font-bold mb-6">Full-Text Search</h1>
-      
-      {/* Modification Input Bar */}
+
       <form onSubmit={handleSearch} className="flex gap-2 max-w-2xl mb-10">
         <Input 
             value={localQuery}
