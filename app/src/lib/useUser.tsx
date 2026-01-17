@@ -9,8 +9,6 @@ export function useUser() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // This listener handles the Firebase Auth state change 
-    // AND your MovieService DB sync logic
     const unsubscribe = handleAuthStateChange(auth, (firebaseUser) => {
       setUser(firebaseUser);
       setLoading(false);

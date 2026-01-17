@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "@/lib/firebase";
-import { useUser } from "@/lib/useUser"; // <--- IMPORT THE NEW HOOK
+import { useUser } from "@/lib/useUser"; 
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import {
   Film,
@@ -27,7 +27,7 @@ export default function Header({ className }: { className?: string }) {
   const [query, setQuery] = useState("");
 
   const auth = useContext(AuthContext);
-  const { user, loading } = useUser(); // <--- REACTIVE USER STATE
+  const { user, loading } = useUser();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,7 +84,6 @@ export default function Header({ className }: { className?: string }) {
           </nav>
         </div>
 
-        {/* Right: Search, Theme, User */}
         <div className="flex items-center gap-2">
           <form onSubmit={handleSearch} className="relative hidden sm:block">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -98,7 +97,6 @@ export default function Header({ className }: { className?: string }) {
 
           <ThemeToggle />
 
-          {/* 2. Show spinner if auth is initializing, otherwise show User/Login */}
           {loading ? (
             <div className="w-9 h-9 rounded-full bg-muted animate-pulse" />
           ) : user ? (

@@ -31,7 +31,6 @@ export default function MoviePoster({
   size = "medium",
   className,
 }: MoviePosterProps) {
-  // Logic to handle image resizing via URL manipulation
   const getPosterSizeUrl = (url: string, s: string) => {
     if (!url) return "";
     if (s === "small") return url.replace(".jpg", "-300x400.jpg");
