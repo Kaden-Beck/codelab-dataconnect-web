@@ -13,10 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { MdFavorite, MdFavoriteBorder, MdStar } from "react-icons/md";
+import { useParams, Link, useNavigate } from "react-router-dom"; // Added useNavigate
+import { 
+  MdFavorite, 
+  MdFavoriteBorder, 
+  MdStar, 
+  MdConfirmationNumber
+} from "react-icons/md";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { AuthContext } from "@/lib/firebase";
 import NotFound from "./NotFound";
@@ -32,6 +36,7 @@ import MovieCard from "@/components/moviecard";
 
 export default function MoviePage() {
   const { id } = useParams() as { id: string };
+  const navigate = useNavigate(); // Initialize hook
   const auth = useContext(AuthContext);
 
   const [loading, setLoading] = useState(true);
@@ -40,9 +45,9 @@ export default function MoviePage() {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
 
-  const [movie, setMovie] = useState(null);
-  const [userReview, setUserReview] = useState(null);
-  const [similarMovies, setSimilarMovies] = useState([]);
+  const [movie, setMovie] = useState<any>(null); 
+  const [userReview, setUserReview] = useState<any>(null);
+  const [similarMovies, setSimilarMovies] = useState<any[]>([]);
 
   // Fetch the movie details and check if it's favorited when the user is authenticated
   useEffect(() => {
@@ -63,7 +68,7 @@ export default function MoviePage() {
         setMovie(movieData);
         if (movieData?.reviews) {
           const userReview = movieData.reviews.find(
-            (review) => review.user.id === authUser?.uid
+            (review: any) => review.user.id === authUser?.uid
           );
           setUserReview(userReview || null);
         }
@@ -88,6 +93,20 @@ export default function MoviePage() {
     } catch (error) {
       console.error("Error updating favorite status:", error);
     }
+  };
+
+  // Handle navigation to the Find Theatres page
+  const handleFindTheatres = () => {
+    if (!movie) return;
+    
+    const params = new URLSearchParams();
+    params.set("title", movie.title);
+    
+    if (movie.tags && Array.isArray(movie.tags)) {
+      movie.tags.forEach((tag: string) => params.append("tags", tag));
+    }
+
+    navigate(`/findtheatres?${params.toString()}`);
   };
 
   // Submit a new review
@@ -158,16 +177,28 @@ export default function MoviePage() {
               <span className="font-bold">Tags:</span> {movie.tags?.join(", ")}
             </p>
           </div>
-          <div className="mt-4 flex space-x-4">
+
+          {/* Action Buttons */}
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+             {/* Find Theatres Button */}
+             <button
+              onClick={handleFindTheatres}
+              className="flex items-center gap-2 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg"
+            >
+              <MdConfirmationNumber size={20} />
+              Find Theatres
+            </button>
+
+            {/* Favorite Button */}
             <button
-              className="flex items-center justify-center p-1 text-red-500 hover:text-red-600 transition-colors duration-200"
+              className="flex items-center justify-center p-2 text-red-500 hover:bg-gray-800 rounded-full transition-colors duration-200"
               aria-label="Favorite"
               onClick={handleFavoriteToggle}
             >
               {isFavorited ? (
-                <MdFavorite size={24} />
+                <MdFavorite size={32} />
               ) : (
-                <MdFavoriteBorder size={24} />
+                <MdFavoriteBorder size={32} />
               )}
             </button>
           </div>
@@ -177,7 +208,7 @@ export default function MoviePage() {
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-2">Main Actors</h2>
         <div className="flex overflow-x-auto space-x-4">
-          {movie.mainActors.map((actor) => (
+          {movie.mainActors.map((actor: any) => (
             <Link key={actor.id} to={`/actor/${actor.id}`}>
               <div className="flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer w-32">
                 <img
@@ -197,7 +228,7 @@ export default function MoviePage() {
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-2">Supporting Actors</h2>
         <div className="flex overflow-x-auto space-x-4">
-          {movie.supportingActors.map((actor) => (
+          {movie.supportingActors.map((actor: any) => (
             <Link key={actor.id} to={`/actor/${actor.id}`}>
               <div className="flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer w-32">
                 <img
@@ -248,7 +279,7 @@ export default function MoviePage() {
           </form>
         ) : null}
 
-        {movie.reviews.map((review) => (
+        {movie.reviews.map((review: any) => (
           <div
             key={review.id}
             className="mb-4 p-4 bg-gray-800 rounded-lg shadow-md"
@@ -276,6 +307,7 @@ export default function MoviePage() {
             <div className="grid grid-cols-4 gap-2">
               {similarMovies.map((similarMovie) => (
                 <MovieCard
+                  key={similarMovie.id}
                   id={similarMovie.id}
                   title={similarMovie.title || "TBA"}
                   imageUrl={similarMovie.imageUrl}
