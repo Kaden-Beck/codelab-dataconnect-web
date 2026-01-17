@@ -10,9 +10,9 @@ import {
   searchMoviesFts,
   addWatch,
   deleteWatch,
-  addReview,
+  addVerifiedReview,
   searchMovies,
-  updateUser
+  updateUser,
 } from "@movie/dataconnect"; // Assuming your generated SDK path
 import { onAuthStateChanged, User } from "firebase/auth";
 
@@ -41,8 +41,7 @@ export const handleGetMovieById = async (movieId: string) => {
 export const handleBrowseMovies = async (filters: any) => {
   try {
     // Map UI filters to GQL variables
-    const variables: any = {
-    };
+    const variables: any = {};
     if (filters.title) variables.partialTitle = filters.title;
     if (filters.minYear) variables.minDate = `${filters.minYear}-01-01`;
     if (filters.maxYear) variables.maxDate = `${filters.maxYear}-12-31`;
@@ -103,9 +102,9 @@ export const handleAddWatch = async (
   }
 };
 
-export const handleDeleteWatch = async (watchId: string) => {
+export const handleDeleteWatch = async (movieId: string) => {
   try {
-    await deleteWatch({ watchId });
+    await deleteWatch({ movieId });
   } catch (error) {
     console.error("Error deleting watch:", error);
     throw error;
@@ -118,7 +117,7 @@ export const handleAddReview = async (
   review: string
 ) => {
   try {
-    await addReview({ movieId, rating, review });
+    await addVerifiedReview({ movieId, rating, review });
   } catch (error) {
     console.error("Error adding review:", error);
     throw error;
@@ -133,14 +132,13 @@ export const handleAuthStateChange = (
     if (firebaseUser) {
       setUser(firebaseUser);
 
-      // Sync the Firebase Auth user to your Data Connect "User" table
-      // using the "UpdateUser" mutation defined in your new schema
       try {
         await updateUser({
           username: firebaseUser.email?.split("@")[0] || "anon",
           displayName: firebaseUser.displayName || "Anonymous",
           imageUrl: firebaseUser.photoURL || "",
         });
+        console.log("User synced to database successfully");
       } catch (e) {
         console.error("Error syncing user to Data Connect:", e);
       }

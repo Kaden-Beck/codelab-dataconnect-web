@@ -5,8 +5,19 @@ import { toast } from "sonner"; // Assuming you installed sonner
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar"; // From Shadcn (needs react-day-picker)
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +25,13 @@ import MoviePoster, { Movie } from "@/components/movie-poster";
 import StarRating from "@/components/ui/star-rating"; // Assume standard react component
 import { handleAddWatch, handleAddReview } from "@/lib/MovieService"; // <-- IMPORT SERVICE
 
-export default function WatchDialog({ movie, children }: { movie: Movie; children?: React.ReactNode }) {
+export default function WatchDialog({
+  movie,
+  children,
+}: {
+  movie: Movie;
+  children?: React.ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState<Date>(new Date());
   const [formatType, setFormatType] = useState("home");
@@ -25,26 +42,21 @@ export default function WatchDialog({ movie, children }: { movie: Movie; childre
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      // 1. If there is a review/rating, submit that first
-      let reviewId = null;
-      if (rating > 0 || review.trim().length > 0) {
-        // In your schema, review creation might return an ID. 
-        // For simplicity, we just fire the mutation.
-        await handleAddReview(movie.id, rating, review);
+        await handleAddWatch(movie.id, formatType, date.toISOString().split("T")[0]);
+
+        if (rating > 0) {
+            await handleAddReview(movie.id, rating, review);
+        }
+        
+        toast.success(`Logged '${movie.title}'`);
+        setOpen(false);
+    } catch (e: any) {
+      console.error(e);
+      if (e.message?.includes("must watch the movie")) {
+        toast.error("Error: You must log a watch before reviewing.");
+      } else {
+        toast.error("Failed to log a watch.");
       }
-
-      // 2. Submit the watch log
-      // Format date as YYYY-MM-DD for your Postgres Date type
-      const dateStr = date.toISOString().split('T')[0];
-      await handleAddWatch(movie.id, formatType, dateStr);
-
-      toast.success(`Logged ${movie.title} to history`);
-      setOpen(false);
-      setRating(0);
-      setReview("");
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to log watch");
     } finally {
       setLoading(false);
     }
@@ -59,24 +71,35 @@ export default function WatchDialog({ movie, children }: { movie: Movie; childre
         <DialogHeader>
           <DialogTitle>Log a Watch</DialogTitle>
         </DialogHeader>
-        
+
         <div className="flex flex-col md:flex-row gap-6 py-4">
           <div className="w-32 flex-shrink-0 mx-auto md:mx-0">
             <MoviePoster movie={movie} variant="minimal" size="medium" />
           </div>
-          
+
           <div className="flex-1 space-y-4">
             <div className="grid gap-2">
               <label className="text-sm font-medium">Date Watched</label>
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant={"outline"} className={cn("justify-start text-left font-normal", !date && "text-muted-foreground")}>
+                  <Button
+                    variant={"outline"}
+                    className={cn(
+                      "justify-start text-left font-normal",
+                      !date && "text-muted-foreground"
+                    )}
+                  >
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {date ? format(date, "PPP") : <span>Pick a date</span>}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0">
-                  <Calendar mode="single" selected={date} onSelect={(d) => d && setDate(d)} initialFocus />
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={(d) => d && setDate(d)}
+                    initialFocus
+                  />
                 </PopoverContent>
               </Popover>
             </div>
@@ -85,10 +108,10 @@ export default function WatchDialog({ movie, children }: { movie: Movie; childre
               <label className="text-sm font-medium">Format</label>
               <div className="flex gap-2">
                 {["theater", "home", "mobile"].map((f) => (
-                  <Button 
-                    key={f} 
+                  <Button
+                    key={f}
                     type="button"
-                    variant={formatType === f ? "default" : "outline"} 
+                    variant={formatType === f ? "default" : "outline"}
                     size="sm"
                     onClick={() => setFormatType(f)}
                     className="capitalize"
@@ -102,10 +125,10 @@ export default function WatchDialog({ movie, children }: { movie: Movie; childre
             <div className="grid gap-2">
               <label className="text-sm font-medium">Rating & Review</label>
               <StarRating rating={rating} onRatingChange={setRating} />
-              <Textarea 
-                placeholder="What did you think?" 
-                value={review} 
-                onChange={(e) => setReview(e.target.value)} 
+              <Textarea
+                placeholder="What did you think?"
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
                 className="resize-none"
               />
             </div>
@@ -113,7 +136,9 @@ export default function WatchDialog({ movie, children }: { movie: Movie; childre
         </div>
 
         <DialogFooter>
-          <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
           <Button onClick={handleSubmit} disabled={loading}>
             {loading ? "Saving..." : "Save Log"}
           </Button>

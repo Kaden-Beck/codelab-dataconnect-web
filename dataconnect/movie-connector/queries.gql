@@ -13,7 +13,6 @@ fragment MovieOverview on Movie {
 }
 
 fragment ReviewOverview on Review {
-	id
 	user {
 		username
 	}
@@ -74,21 +73,24 @@ query MoviePage($movieId: String!) @auth(level: PUBLIC) {
 }
 
 query WatchHistoryPage($limit: Int) @auth(level: USER) {
-	watches(
-		where: { userUid: { eq_expr: "auth.uid" } }
-		orderBy: [{ watchDate: DESC }]
-		limit: $limit
-	) {
-		id
-		watchDate
-		format
-		review {
-			...ReviewOverview
-		}
-		movie {
-			...MovieOverview
-		}
-	}
+    watches(
+        where: { userUid: { eq_expr: "auth.uid" } }
+        orderBy: [{ watchDate: DESC }]
+        limit: $limit
+    ) {
+        watchDate
+        format
+        review {
+            rating
+            review
+        }
+        movie {
+            id
+            title
+            posterUrl
+            releaseDate
+        }
+    }
 }
 
 
@@ -133,7 +135,6 @@ query DetailedWatchHistory @auth(level: USER) {
 		where: { userUid: { eq_expr: "auth.uid" } }
 		orderBy: [{ watchDate: DESC }]
 	) {
-		id
 		watchDate
 		format
 		review {

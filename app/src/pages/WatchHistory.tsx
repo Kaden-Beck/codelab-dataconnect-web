@@ -2,7 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/lib/firebase';
 import { handleGetWatchHistory, handleDeleteWatch } from '@/lib/MovieService';
 import { Link, useNavigate } from 'react-router-dom';
-import { MdDelete, MdTv, MdSmartphone, MdMovie } from 'react-icons/md';
+import { Trash2, Film, Tv, Smartphone, Calendar as CalendarIcon } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import MoviePoster from '@/components/movie-poster';
+import { format } from "date-fns";
+import { toast } from "sonner";
 
 export default function WatchHistoryPage() {
   const auth = useContext(AuthContext);
@@ -17,86 +23,107 @@ export default function WatchHistoryPage() {
   };
 
   useEffect(() => {
-    // Basic route protection
-    if(!auth.currentUser) {
+    if (!auth.currentUser) {
         navigate("/");
     } else if (auth.currentUser) {
         fetchHistory();
     }
-  }, [auth.currentUser, navigate]);
+  }, [auth.currentUser]);
 
-  const onDelete = async (id: string) => {
-    if(window.confirm("Remove from history?")) {
-        await handleDeleteWatch(id);
-        fetchHistory(); // Refresh
+  // FIX: Accept movieId and watchDate instead of 'id'
+  const onDelete = async (movieId: string, watchDate: string) => {
+    if(window.confirm("Remove this log?")) {
+        try {
+            await handleDeleteWatch(movieId);
+            // Remove from local state using the same composite key logic
+            setWatches(prev => prev.filter(w => 
+                !(w.movie.id === movieId && w.watchDate === watchDate)
+            ));
+            toast.success("Watch removed");
+        } catch (e) {
+            console.error(e);
+            toast.error("Failed to delete.");
+        }
     }
   };
 
-  // Group by Month Helper
+  if (loading) return <div className="p-10 text-center">Loading history...</div>;
+
   const grouped = watches.reduce((acc: any, watch) => {
-    const month = watch.watchDate.substring(0, 7); // YYYY-MM
-    if(!acc[month]) acc[month] = [];
-    acc[month].push(watch);
+    const monthKey = watch.watchDate.substring(0, 7);
+    if(!acc[monthKey]) acc[monthKey] = [];
+    acc[monthKey].push(watch);
     return acc;
   }, {});
 
-  if (loading) return <div className="p-10 text-white">Loading history...</div>;
+  const sortedMonths = Object.keys(grouped).sort().reverse();
 
   return (
-    <div className="container mx-auto p-4 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-3xl font-bold mb-8">My Watch History</h1>
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 className="text-3xl font-bold mb-8">Watch History</h1>
 
-      {Object.keys(grouped).sort().reverse().map(month => (
-        <div key={month} className="mb-8">
-            <h2 className="text-xl font-bold text-gray-400 mb-4 border-b border-gray-700 pb-2">
-                {new Date(month + "-01").toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-            </h2>
-            <div className="bg-gray-800 rounded-lg overflow-hidden">
-                <table className="w-full text-left">
-                    <thead className="bg-gray-700 text-gray-300 text-sm">
-                        <tr>
-                            <th className="p-4">Day</th>
-                            <th className="p-4">Movie</th>
-                            <th className="p-4 hidden md:table-cell">Format</th>
-                            <th className="p-4 text-right">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {grouped[month].map((watch: any) => (
-                            <tr key={watch.id} className="border-b border-gray-700 hover:bg-gray-750 transition">
-                                <td className="p-4 text-xl font-mono text-gray-400">
-                                    {watch.watchDate.substring(8, 10)}
-                                </td>
-                                <td className="p-4">
-                                    <Link to={`/movie/${watch.movie.id}`} className="flex items-center gap-4 group">
-                                        <img src={watch.movie.posterUrl} className="w-10 h-14 object-cover rounded" alt="" />
-                                        <div>
-                                            <div className="font-bold group-hover:text-blue-400">{watch.movie.title}</div>
-                                            <div className="text-xs text-gray-500">{new Date(watch.movie.releaseDate).getFullYear()}</div>
-                                        </div>
-                                    </Link>
-                                </td>
-                                <td className="p-4 hidden md:table-cell text-sm text-gray-400 capitalize">
-                                    <div className="flex items-center gap-2">
-                                        {watch.format === 'home' && <MdTv />}
-                                        {watch.format === 'mobile' && <MdSmartphone />}
-                                        {watch.format.includes('theater') && <MdMovie />}
-                                        {watch.format.replace('-', ' ')}
-                                    </div>
-                                </td>
-                                <td className="p-4 text-right">
-                                    <button onClick={() => onDelete(watch.id)} className="text-gray-500 hover:text-red-500 p-2">
-                                        <MdDelete size={20} />
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+      {watches.length === 0 ? (
+        <div className="text-center py-12 border rounded-lg bg-muted/20">
+            <p className="text-muted-foreground">You haven't logged any movies yet.</p>
+            <Button className="mt-4" asChild><Link to="/browse">Browse Movies</Link></Button>
         </div>
-      ))}
-      {watches.length === 0 && <p className="text-gray-500 text-center mt-10">You haven't watched any movies yet.</p>}
+      ) : (
+        <div className="space-y-8">
+            {sortedMonths.map(month => (
+                <div key={month} className="space-y-4">
+                    <div className="flex items-center gap-2 text-muted-foreground font-semibold">
+                        <CalendarIcon className="w-4 h-4" />
+                        {format(new Date(month + "-01"), "MMMM yyyy")}
+                    </div>
+                    
+                    <div className="grid gap-3">
+                        {grouped[month].map((watch: any) => (
+                            // FIX: Use composite key for React Key
+                            <Card key={`${watch.movie.id}-${watch.watchDate}`} className="overflow-hidden">
+                                <CardContent className="p-0 flex items-center">
+                                    <div className="w-16 h-24 flex-shrink-0">
+                                        <MoviePoster movie={watch.movie} size="small" variant="minimal" className="h-full rounded-none" />
+                                    </div>
+                                    
+                                    <div className="flex-1 px-4 py-2">
+                                        <div className="flex justify-between items-start">
+                                            <div>
+                                                <div className="text-sm text-muted-foreground font-mono mb-1">
+                                                    {format(new Date(watch.watchDate), "MMM dd")}
+                                                </div>
+                                                <Link to={`/movie/${watch.movie.id}`} className="font-bold hover:underline block text-lg">
+                                                    {watch.movie.title}
+                                                </Link>
+                                            </div>
+                                            {/* FIX: Call onDelete with composite params */}
+                                            <Button variant="ghost" size="icon" onClick={() => onDelete(watch.movie.id, watch.watchDate)} className="text-muted-foreground hover:text-destructive">
+                                                <Trash2 className="w-4 h-4" />
+                                            </Button>
+                                        </div>
+
+                                        <div className="flex items-center gap-3 mt-2">
+                                            <Badge variant="outline" className="capitalize flex gap-1 items-center">
+                                                {watch.format === 'home' && <Tv className="w-3 h-3" />}
+                                                {watch.format === 'mobile' && <Smartphone className="w-3 h-3" />}
+                                                {watch.format?.includes('theater') && <Film className="w-3 h-3" />}
+                                                {watch.format?.replace('-', ' ')}
+                                            </Badge>
+                                            
+                                            {watch.review && (
+                                                <div className="text-xs flex items-center gap-1 text-yellow-500 font-bold">
+                                                    ★ {watch.review.rating/2}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "@/lib/firebase"; // Your existing firebase context
+import { AuthContext } from "@/lib/firebase"; 
+import { useUser } from "@/lib/useUser"; // <--- IMPORT THE NEW HOOK
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { 
   Film, 
@@ -8,7 +9,6 @@ import {
   Sparkles, 
   Search, 
   LogOut, 
-  User as UserIcon 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,9 +21,8 @@ export default function Header({ className }: { className?: string }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   
-  // Use the Context you set up in previous Vite steps
-  const auth = useContext(AuthContext);
-  const user = auth.currentUser;
+  const auth = useContext(AuthContext); 
+  const { user, loading } = useUser(); // <--- REACTIVE USER STATE
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +33,8 @@ export default function Header({ className }: { className?: string }) {
 
   const handleLogin = async () => {
     try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
     } catch (error) {
       console.error("Login failed", error);
     }
@@ -43,8 +43,6 @@ export default function Header({ className }: { className?: string }) {
   return (
     <header className={cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className)}>
       <div className="container flex h-16 items-center justify-between px-4 mx-auto">
-        
-        {/* Left: Logo & Nav */}
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 font-bold text-xl">
             FriendlyMovies
@@ -78,7 +76,10 @@ export default function Header({ className }: { className?: string }) {
 
           <ThemeToggle />
 
-          {user ? (
+          {/* 2. Show spinner if auth is initializing, otherwise show User/Login */}
+          {loading ? (
+             <div className="w-9 h-9 rounded-full bg-muted animate-pulse" />
+          ) : user ? (
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="ghost" className="relative h-9 w-9 rounded-full">
