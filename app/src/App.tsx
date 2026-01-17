@@ -22,7 +22,7 @@ import MoviePage from "./pages/Movie";
 import MyProfilePage from "./pages/MyProfile";
 import VectorSearchPage from "./pages/VectorSearch";
 import AdvancedSearchPage from "./pages/AdvancedSearch";
-import FindTheatresPage from "./pages/FindTheatres";
+// import FindTheatresPage from "./pages/FindTheatres";
 import NotFound from "./pages/NotFound";
 import RootLayout from "./layout/RootLayout";
 
@@ -37,7 +37,7 @@ export default function App() {
           <Route path="/myprofile" element={<MyProfilePage />} />
           <Route path="/vectorsearch" element={<VectorSearchPage />} />
           <Route path="/advancedsearch" element={<AdvancedSearchPage />} />
-          <Route path="/findtheatres" element={<FindTheatresPage />} />
+          {/* <Route path="/findtheatres" element={<FindTheatresPage />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </RootLayout>
