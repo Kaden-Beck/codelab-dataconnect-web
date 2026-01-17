@@ -15,6 +15,7 @@
  */
 
 import { initializeApp, getApps } from "firebase/app";
+import { getAI, getGenerativeModel } from "firebase/ai";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import {
   connectDataConnectEmulator,
@@ -37,6 +38,15 @@ const firebaseApp =
 
 const auth = getAuth(firebaseApp);
 const dataconnect = getDataConnect(firebaseApp, connectorConfig);
+
+const ai = getAI(firebaseApp);
+
+export const getSearchEnabledModel = () => {
+  return getGenerativeModel(ai, {
+    model: "gemini-3-flash-preview", 
+    tools: [{ googleSearch: {} }]
+  });
+};
 
 if (process.env.NODE_ENV === "development") {
   connectDataConnectEmulator(dataconnect, "127.0.0.1", 9399, false);

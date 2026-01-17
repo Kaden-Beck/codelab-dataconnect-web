@@ -1,33 +1,38 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "@/lib/firebase"; 
+import { AuthContext } from "@/lib/firebase";
 import { useUser } from "@/lib/useUser"; // <--- IMPORT THE NEW HOOK
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
-import { 
-  Film, 
-  History, 
-  Sparkles, 
-  Search, 
-  LogOut, 
+import {
+  Film,
+  History,
+  Sparkles,
+  Search,
+  LogOut,
+  SlidersHorizontal,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 export default function Header({ className }: { className?: string }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  
-  const auth = useContext(AuthContext); 
+
+  const auth = useContext(AuthContext);
   const { user, loading } = useUser(); // <--- REACTIVE USER STATE
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      navigate(`/browse?title=${encodeURIComponent(query)}`);
+      navigate(`/search?q=${encodeURIComponent(query)}`);
     }
   };
 
@@ -41,23 +46,41 @@ export default function Header({ className }: { className?: string }) {
   };
 
   return (
-    <header className={cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className)}>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+        className
+      )}
+    >
       <div className="container flex h-16 items-center justify-between px-4 mx-auto">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 font-bold text-xl">
             FriendlyMovies
           </Link>
-          
+
           <nav className="hidden md:flex items-center gap-1">
             <Button variant="ghost" asChild>
-              <Link to="/browse"><Film className="mr-2 h-4 w-4"/> Browse</Link>
+              <Link to="/browse">
+                <Film className="mr-2 h-4 w-4" /> Browse
+              </Link>
             </Button>
             <Button variant="ghost" asChild>
-              <Link to="/history"><History className="mr-2 h-4 w-4"/> My Watches</Link>
+              <Link to="/history">
+                <History className="mr-2 h-4 w-4" /> My Watches
+              </Link>
             </Button>
             <Button variant="ghost" asChild>
-              <Link to="/recommender"><Sparkles className="mr-2 h-4 w-4"/> AI Suggest</Link>
+              <Link to="/vector-search">
+                <Sparkles className="mr-2 h-4 w-4 text-purple-500" /> Vector
+                Search
+              </Link>
             </Button>
+            {/* <Button variant="ghost" asChild>
+              <Link to="/advanced-search">
+                <SlidersHorizontal className="mr-2 h-4 w-4" /> Advanced
+              </Link>
+            </Button> */}
+            
           </nav>
         </div>
 
@@ -66,7 +89,6 @@ export default function Header({ className }: { className?: string }) {
           <form onSubmit={handleSearch} className="relative hidden sm:block">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              type="search"
               placeholder="Search movies..."
               className="w-[200px] pl-9 md:w-[260px]"
               value={query}
@@ -78,30 +100,48 @@ export default function Header({ className }: { className?: string }) {
 
           {/* 2. Show spinner if auth is initializing, otherwise show User/Login */}
           {loading ? (
-             <div className="w-9 h-9 rounded-full bg-muted animate-pulse" />
+            <div className="w-9 h-9 rounded-full bg-muted animate-pulse" />
           ) : user ? (
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="ghost" className="relative h-9 w-9 rounded-full">
+                <Button
+                  variant="ghost"
+                  className="relative h-9 w-9 rounded-full"
+                >
                   <Avatar className="h-9 w-9 border">
-                    <AvatarImage src={user.photoURL || ""} alt={user.displayName || ""} />
-                    <AvatarFallback>{user.displayName?.[0] || "U"}</AvatarFallback>
+                    <AvatarImage
+                      src={user.photoURL || ""}
+                      alt={user.displayName || ""}
+                    />
+                    <AvatarFallback>
+                      {user.displayName?.[0] || "U"}
+                    </AvatarFallback>
                   </Avatar>
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-56" align="end" forceMount>
                 <div className="grid gap-2">
-                  <div className="font-medium text-sm leading-none">{user.displayName}</div>
-                  <div className="text-xs text-muted-foreground">{user.email}</div>
+                  <div className="font-medium text-sm leading-none">
+                    {user.displayName}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {user.email}
+                  </div>
                   <div className="h-px bg-border my-1" />
-                  <Button variant="ghost" className="w-full justify-start text-red-500" onClick={() => signOut(auth)}>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start text-red-500"
+                    onClick={() => signOut(auth)}
+                  >
                     <LogOut className="mr-2 h-4 w-4" /> Sign out
                   </Button>
                 </div>
               </PopoverContent>
             </Popover>
           ) : (
-            <Button onClick={handleLogin} size="sm">Sign In</Button>
+            <Button onClick={handleLogin} size="sm">
+              Sign In
+            </Button>
           )}
         </div>
       </div>

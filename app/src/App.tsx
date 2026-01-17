@@ -11,6 +11,8 @@ import BrowsePage from "@/pages/Browse";
 import WatchHistoryPage from "@/pages/WatchHistory";
 import AdvancedSearchPage from "./pages/AdvancedSearch";
 import VectorSearchPage from "./pages/VectorSearch";
+import FindTheatresPage from './pages/FindTheatres';
+import FullTextSearchPage from "./pages/FtsSearch";
 
 function App() {
   return (
@@ -25,11 +27,13 @@ function App() {
                 <Route path="/movie/:id" element={<MoviePage />} />
                 <Route path="/browse" element={<BrowsePage />} />
                 <Route path="/history" element={<WatchHistoryPage />} />
-                <Route
-                  path="/advancedsearch"
+                {/* <Route
+                  path="/advanced-search"
                   element={<AdvancedSearchPage />}
-                />
-                {/* <Route path="/vectorsearch" element={<VectorSearchPage />} /> */}
+                /> */}
+                <Route path="/vector-search" element={<VectorSearchPage />} />
+                <Route path="/theatres" element={<FindTheatresPage />} />
+                <Route path="/search" element={<FullTextSearchPage />} />
               </Routes>
             </main>
             <Toaster />

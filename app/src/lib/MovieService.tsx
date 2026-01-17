@@ -13,6 +13,8 @@ import {
   addVerifiedReview,
   searchMovies,
   updateUser,
+  searchMoviesVector, 
+  searchAll
 } from "@movie/dataconnect"; // Assuming your generated SDK path
 import { onAuthStateChanged, User } from "firebase/auth";
 
@@ -77,16 +79,6 @@ export const handleSearchMoviesFTS = async (query: string) => {
   }
 };
 
-export const handleVectorSearch = async (query: string) => {
-  try {
-    const response = await searchMovies({ query });
-    return response.data.movies;
-  } catch (error) {
-    console.error("Error performing vector search", error);
-    return [];
-  }
-};
-
 // --- Mutations ---
 
 export const handleAddWatch = async (
@@ -146,4 +138,48 @@ export const handleAuthStateChange = (
       setUser(null);
     }
   });
+};
+
+export const handleVectorSearch = async (query: string) => {
+  try {
+    const response = await searchMoviesVector({ query });
+    return response.data.movies_embedding_similarity;
+  } catch (error) {
+    console.error("Vector Search Error:", error);
+    return [];
+  }
+};
+
+// 2. Full Text Search
+export const handleFTS = async (query: string) => {
+  try {
+    const response = await searchMoviesFts({ query });
+    return response.data;
+  } catch (error) {
+    console.error("FTS Error:", error);
+    return { query: [], phrase: [], plain: [] };
+  }
+};
+
+// 3. Advanced Filter Search
+export const handleAdvancedSearch = async (
+  textInput: string,
+  minYear: number,
+  maxYear: number,
+  minRating: number, // 0-10
+  genre: string
+) => {
+  try {
+    const response = await searchAll({
+      titleInput: textInput,
+      minDate: `${minYear}-01-01`,
+      maxDate: `${maxYear}-12-31`,
+      minAvgRating: minRating,
+      genre: genre === "All" ? "" : genre
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Advanced Search Error:", error);
+    return null;
+  }
 };

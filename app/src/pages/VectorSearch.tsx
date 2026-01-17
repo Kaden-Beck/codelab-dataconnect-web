@@ -1,97 +1,56 @@
-/**
- * Copyright 2026 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React, { useState } from 'react';
-import { searchMoviesByDescription } from '@/lib/MovieService';
-import { FaSpinner } from 'react-icons/fa';
+import { handleVectorSearch } from '@/lib/MovieService';
+import MoviePoster from '@/components/movie-poster';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Loader2 } from 'lucide-react';
 
 export default function VectorSearchPage() {
   const [query, setQuery] = useState('');
+  const [movies, setMovies] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const [results, setResults] = useState([]);
-
-  async function handleSearch(e: React.FormEvent<HTMLFormElement>) {
+  const onSearch = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!query.trim()) return;
     setLoading(true);
-    try {
-      const searchResults = await searchMoviesByDescription(query);
-      if (searchResults) {
-        setResults(searchResults);
-      }
-    } catch (error) {
-      console.error('Error fetching movie descriptions:', error);
-    } finally {
-      setLoading(false);
-    }
-  }
+    const results = await handleVectorSearch(query);
+    setMovies(results || []);
+    setLoading(false);
+  };
 
   return (
-    <div className="container mx-auto p-4 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-bold mb-4">Vector Movie Search</h1>
-      <form onSubmit={handleSearch} className="mb-8">
-        <label htmlFor="query" className="block mb-2 text-xl">Enter your query</label>
-        <div className="flex items-center">
-          <input
-            id="query"
-            type="text"
-            className="w-full p-4 rounded bg-gray-800 text-white"
+    <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
+          <Sparkles className="text-yellow-500" /> Vector Search
+        </h1>
+        <p className="text-muted-foreground mb-8">
+          Describe the <em>vibe</em>, plot, or feeling of the movie you want. 
+          <br/>Ex: "A sad movie about space travel" or "Cowboys fighting aliens".
+        </p>
+        
+        <form onSubmit={onSearch} className="flex gap-2 max-w-xl mx-auto">
+          <Input 
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Describe the kind of movie you're looking for..."
+            onChange={e => setQuery(e.target.value)}
+            placeholder="Describe your movie..."
+            className="h-12 text-lg"
           />
-          <button
-            type="submit"
-            className="ml-2 p-4 rounded bg-slate-600 text-white hover:bg-slate-700 transition-colors"
-          >
-            Search
-          </button>
-        </div>
-      </form>
+          <Button type="submit" size="lg" className="h-12 px-8" disabled={loading}>
+            {loading ? <Loader2 className="animate-spin" /> : "Find"}
+          </Button>
+        </form>
+      </div>
 
-      {loading && (
-        <div className="flex justify-center items-center">
-          <FaSpinner className="animate-spin text-4xl text-blue-600" />
-        </div>
-      )}
-
-      {!loading && results.length > 0 && (
-        <div className="results">
-          <h2 className="text-2xl font-bold mb-4">Results</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {results.map((movie) => (
-              <div key={movie.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer">
-                <img className="w-full h-64 object-cover" src={movie.imageUrl} alt={movie.title} />
-                <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1 text-white">{movie.title}</h3>
-                  <p className="text-sm text-gray-400">{movie.description}</p>
-                  <div className="flex items-center text-yellow-500 mt-2">
-                    <span className="ml-1 text-gray-400">{movie.rating}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {movie?.tags?.map((tag, index) => (
-                      <span key={index} className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {movies.map(movie => (
+          <div key={movie.id} className="space-y-2">
+            <MoviePoster movie={movie} />
+            <p className="text-xs text-muted-foreground line-clamp-3">{movie.description}</p>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 }
