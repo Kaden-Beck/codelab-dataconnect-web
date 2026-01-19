@@ -5,3 +5,5 @@ app/node_modules
 .log
 app/dist/
 dataconnect/.dataconnect
+/node_modules
+app/src/lib/dataconnect-sdk
