@@ -1,4 +1,3 @@
-const { , validateArgs } = require('firebase/data-connect');
 
 const connectorConfig = {
   connector: 'movie-connector',
@@ -6,4 +5,3 @@ const connectorConfig = {
   location: 'us-central1'
 };
 exports.connectorConfig = connectorConfig;
-

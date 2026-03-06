@@ -1,0 +1,234 @@
+I0306 13:30:08.283281  149494 load.go:31] Reloading schema and connectors...
+I0306 13:30:08.287372  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 37e3] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 13:30:08.290439  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 13:30:08.293705  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 13:30:08.293992  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/setup.md [580B] index.d.ts [248B] .guides/usage.md [427B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] 
+I0306 13:30:08.294337  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 13:30:08.294352  149494 load.go:109] Finished reloading
+I0306 13:30:08.294607  149494 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0306 13:30:08.294640  149494 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0306 13:30:11.843976  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id bfc2] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 13:50:58.303461  149494 load.go:31] Reloading schema and connectors...
+E0306 13:50:58.304548  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:17:6: OBJECT Movie: must define one or more fields.
+I0306 13:50:58.305068  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 13:50:58.305081  149494 load.go:74] Finished reloading
+I0306 13:51:08.295384  149494 load.go:31] Reloading schema and connectors...
+E0306 13:51:08.297347  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:20:3: expected at least one definition, found }
+I0306 13:51:08.297872  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 13:51:08.297887  149494 load.go:74] Finished reloading
+I0306 13:51:18.304961  149494 load.go:31] Reloading schema and connectors...
+E0306 13:51:18.306725  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:20:3: Expected Name, found }
+I0306 13:51:18.307270  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 13:51:18.307289  149494 load.go:74] Finished reloading
+I0306 13:51:28.304881  149494 load.go:31] Reloading schema and connectors...
+I0306 13:51:28.609430  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie" ("id" uuid NOT NULL, PRIMARY KEY ("id"))
+I0306 13:51:29.306807  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 01b5] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1580B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 13:51:29.309590  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 13:51:29.313406  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [3486B] main/relation.gql [838B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 13:51:29.313642  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] index.cjs.js [161B] README.md [2769B] .guides/usage.md [427B] index.d.ts [326B] esm/package.json [17B] package.json [641B] .guides/setup.md [580B] .guides/config.json [236B] 
+I0306 13:51:29.313913  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 13:51:29.313923  149494 load.go:109] Finished reloading
+I0306 13:51:38.295757  149494 load.go:31] Reloading schema and connectors...
+E0306 13:51:38.297479  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:21:3: Expected :, found }
+I0306 13:51:38.298180  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [3486B] main/relation.gql [838B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 13:51:38.298200  149494 load.go:74] Finished reloading
+I0306 13:51:48.305561  149494 load.go:31] Reloading schema and connectors...
+I0306 13:51:48.960473  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+Step 2: ALTER TABLE "public"."movie" ALTER COLUMN "id" SET DEFAULT uuid_generate_v4(), ADD COLUMN "title" text NOT NULL
+I0306 13:51:49.708810  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 43f1] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1625B] 
+Connector "movie-connector": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] 
+I0306 13:51:49.712302  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 13:51:49.714936  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [4121B] main/relation.gql [1201B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 13:51:49.715187  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.d.ts [326B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/setup.md [580B] .guides/config.json [236B] .guides/usage.md [427B] 
+I0306 13:51:49.715395  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 13:51:49.715410  149494 load.go:109] Finished reloading
+I0306 14:19:18.304090  149494 load.go:31] Reloading schema and connectors...
+E0306 14:19:18.305613  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:21:15: Expected :, found <Invalid>
+I0306 14:19:18.306467  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [1251B] main/mutation.gql [3320B] main/input.gql [4121B] main/relation.gql [1201B] prelude.gql [80731B] 
+I0306 14:19:18.306483  149494 load.go:74] Finished reloading
+I0306 14:19:28.304308  149494 load.go:31] Reloading schema and connectors...
+I0306 14:19:28.954720  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "image_url" text NOT NULL
+I0306 14:19:29.646844  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 23bf] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1652B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:19:29.649805  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:19:29.652263  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [1251B] main/mutation.gql [3320B] prelude.gql [80731B] main/input.gql [4795B] main/relation.gql [1573B] 
+I0306 14:19:29.652450  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.cjs.js [161B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [326B] esm/package.json [17B] package.json [641B] README.md [2769B] .guides/setup.md [580B] esm/index.esm.js [126B] 
+I0306 14:19:29.653492  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:19:29.653518  149494 load.go:109] Finished reloading
+I0306 14:19:38.295717  149494 load.go:31] Reloading schema and connectors...
+I0306 14:19:38.941424  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "genre" text NULL, ADD COLUMN "release_year" integer NULL
+I0306 14:19:39.633112  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6150] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1691B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:19:39.637220  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:19:39.639453  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [7173B] main/relation.gql [3143B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 14:19:39.639663  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.cjs.js [161B] README.md [2769B] .guides/usage.md [427B] esm/index.esm.js [126B] esm/package.json [17B] package.json [641B] .guides/setup.md [580B] .guides/config.json [236B] index.d.ts [326B] 
+I0306 14:19:39.640427  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:19:39.640459  149494 load.go:109] Finished reloading
+I0306 14:19:48.303034  149494 load.go:31] Reloading schema and connectors...
+I0306 14:19:48.948338  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "rating" double precision NULL
+I0306 14:19:49.635408  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 2b05] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1704B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:19:49.639038  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:19:49.641371  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/mutation.gql [3320B] prelude.gql [80731B] main/input.gql [8796B] main/relation.gql [4281B] main/query.gql [1251B] 
+I0306 14:19:49.641573  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.d.ts [326B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] .guides/setup.md [580B] esm/index.esm.js [126B] .guides/config.json [236B] 
+I0306 14:19:49.642116  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:19:49.642134  149494 load.go:109] Finished reloading
+I0306 14:19:58.302657  149494 load.go:31] Reloading schema and connectors...
+E0306 14:19:58.303808  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:26:3: Expected Name, found }
+I0306 14:19:58.304533  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/input.gql [8796B] main/relation.gql [4281B] main/query.gql [1251B] main/mutation.gql [3320B] prelude.gql [80731B] 
+I0306 14:19:58.304544  149494 load.go:74] Finished reloading
+I0306 14:20:08.295865  149494 load.go:31] Reloading schema and connectors...
+I0306 14:20:08.948917  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "description" text NULL, ADD COLUMN "tags" text[] NULL
+I0306 14:20:09.640138  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8a46] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1747B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:20:09.644358  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:20:09.648498  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [9851B] main/relation.gql [4662B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 14:20:09.648722  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] esm/package.json [17B] .guides/usage.md [427B] .guides/setup.md [580B] index.d.ts [326B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/config.json [236B] 
+I0306 14:20:09.648931  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:20:09.648943  149494 load.go:109] Finished reloading
+I0306 14:20:38.295635  149494 load.go:31] Reloading schema and connectors...
+I0306 14:20:38.943353  149494 migrate.go:24] Running migration SQL:
+Step 1: DROP TABLE "public"."movie"
+I0306 14:20:39.290380  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id b7e7] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] 
+I0306 14:20:39.292644  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:20:39.297050  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 14:20:39.297139  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/input.gql"
+I0306 14:20:39.297170  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/mutation.gql"
+I0306 14:20:39.297186  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/query.gql"
+I0306 14:20:39.297204  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/relation.gql"
+I0306 14:20:39.297459  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/config.json [236B] index.d.ts [248B] .guides/setup.md [580B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] 
+I0306 14:20:39.297656  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:20:39.297670  149494 load.go:109] Finished reloading
+I0306 14:20:48.302674  149494 load.go:31] Reloading schema and connectors...
+I0306 14:20:48.603293  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "description" text NULL, "genre" text NULL, "image_url" text NOT NULL, "rating" double precision NULL, "release_year" integer NULL, "tags" text[] NULL, "title" text NOT NULL, PRIMARY KEY ("id"))
+I0306 14:20:49.291234  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id b334] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1747B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:20:49.295293  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:20:49.299271  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [9851B] main/relation.gql [4662B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 14:20:49.299534  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/usage.md [427B] .guides/setup.md [580B] .guides/config.json [236B] index.d.ts [326B] esm/package.json [17B] README.md [2769B] esm/index.esm.js [126B] index.cjs.js [161B] package.json [641B] 
+I0306 14:20:49.299833  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:20:49.299846  149494 load.go:109] Finished reloading
+I0306 14:20:58.299785  149494 load.go:31] Reloading schema and connectors...
+I0306 14:20:58.949315  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie_metadata" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "movie_id" uuid NOT NULL, "director" text NULL, PRIMARY KEY ("id"), CONSTRAINT "movie_metadata_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE)
+Step 2: CREATE INDEX "movie_metadata_movieId_idx" ON "public"."movie_metadata" ("movie_id")
+I0306 14:20:59.686495  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8b31] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2042B] 
+Connector "movie-connector": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] 
+I0306 14:20:59.691821  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:20:59.695784  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [519B] main/input.gql [15501B] main/relation.gql [7194B] main/query.gql [2584B] main/mutation.gql [6975B] prelude.gql [80731B] 
+I0306 14:20:59.696286  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] package.json [641B] README.md [2769B] .guides/setup.md [580B] esm/package.json [17B] index.cjs.js [161B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [420B] 
+I0306 14:20:59.696659  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:20:59.696673  149494 load.go:109] Finished reloading
+I0306 14:22:18.305513  149494 load.go:31] Reloading schema and connectors...
+I0306 14:22:18.959443  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."actor" ("id" uuid NOT NULL, "image_url" text NOT NULL, "name" character varying(30) NOT NULL, PRIMARY KEY ("id"))
+I0306 14:22:19.652687  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6cd2] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2127B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:22:19.658675  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:22:19.662435  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [519B] main/input.gql [20283B] main/relation.gql [8764B] main/query.gql [3813B] main/mutation.gql [10270B] prelude.gql [80731B] 
+I0306 14:22:19.662762  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/setup.md [580B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] .guides/usage.md [427B] index.d.ts [498B] index.cjs.js [161B] package.json [641B] README.md [2769B] 
+I0306 14:22:19.663603  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:22:19.663623  149494 load.go:109] Finished reloading
+I0306 14:22:28.303083  149494 load.go:31] Reloading schema and connectors...
+I0306 14:22:28.956508  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie_actor" ("movie_id" uuid NOT NULL, "actor_id" uuid NOT NULL, "role" text NOT NULL, PRIMARY KEY ("movie_id", "actor_id"), CONSTRAINT "movie_actor_actor_id_fkey" FOREIGN KEY ("actor_id") REFERENCES "public"."actor" ("id") ON DELETE CASCADE, CONSTRAINT "movie_actor_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE)
+Step 2: CREATE INDEX "movie_actor_actorId_idx" ON "public"."movie_actor" ("actor_id")
+Step 3: CREATE INDEX "movie_actor_movieId_idx" ON "public"."movie_actor" ("movie_id")
+I0306 14:22:29.743175  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6a8a] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2533B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:22:29.749248  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:22:29.752670  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [5044B] prelude.gql [80731B] main/mutation.gql [13664B] main/implicit.gql [1026B] main/input.gql [26753B] main/relation.gql [13838B] 
+I0306 14:22:29.752902  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] esm/package.json [17B] README.md [2769B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [614B] index.cjs.js [161B] package.json [641B] .guides/setup.md [580B] 
+I0306 14:22:29.753120  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:22:29.753133  149494 load.go:109] Finished reloading
+I0306 14:22:48.304890  149494 load.go:31] Reloading schema and connectors...
+I0306 14:22:48.962435  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."user" ("id" text NOT NULL, "username" character varying(50) NOT NULL, PRIMARY KEY ("id"))
+I0306 14:22:49.659504  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id fe9f] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2706B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:22:49.666679  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:22:49.671035  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [1026B] prelude.gql [80731B] main/input.gql [30892B] main/relation.gql [15039B] main/query.gql [6380B] main/mutation.gql [17154B] 
+I0306 14:22:49.671280  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/setup.md [580B] index.d.ts [686B] esm/index.esm.js [126B] .guides/usage.md [427B] .guides/config.json [236B] 
+I0306 14:22:49.671494  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:22:49.671509  149494 load.go:109] Finished reloading
+I0306 14:23:38.295569  149494 load.go:31] Reloading schema and connectors...
+I0306 14:23:38.954862  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."FavoriteMovies" ("user_id" text NOT NULL, "movie_id" uuid NOT NULL, PRIMARY KEY ("user_id", "movie_id"), CONSTRAINT "FavoriteMovies_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE, CONSTRAINT "FavoriteMovies_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 2: CREATE INDEX "FavoriteMovies_movieId_idx" ON "public"."FavoriteMovies" ("movie_id")
+Step 3: CREATE INDEX "FavoriteMovies_userId_idx" ON "public"."FavoriteMovies" ("user_id")
+Step 4: CREATE TABLE "public"."Reviews" ("movie_id" uuid NOT NULL, "user_id" text NOT NULL, "id" uuid NOT NULL DEFAULT uuid_generate_v4(), "rating" integer NULL, "review_date" date NOT NULL, "review_text" text NULL, PRIMARY KEY ("movie_id", "user_id"), CONSTRAINT "Reviews_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE, CONSTRAINT "Reviews_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 5: CREATE INDEX "Reviews_movieId_idx" ON "public"."Reviews" ("movie_id")
+Step 6: CREATE INDEX "Reviews_userId_idx" ON "public"."Reviews" ("user_id")
+I0306 14:23:39.866187  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id af0d] UpdateResources(): done
+Main schema: sources: schema/schema.gql [3044B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+I0306 14:23:39.875306  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+I0306 14:23:39.878998  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [8831B] main/mutation.gql [23905B] main/implicit.gql [2031B] main/input.gql [46794B] main/relation.gql [26964B] prelude.gql [80731B] 
+I0306 14:23:39.879191  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] .guides/setup.md [580B] index.d.ts [906B] 
+I0306 14:23:39.879418  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:23:39.879429  149494 load.go:109] Finished reloading

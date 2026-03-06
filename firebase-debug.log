@@ -1,0 +1,601 @@
+[debug] [2026-03-06T20:30:00.511Z] ----------------------------------------------------------------------
+[debug] [2026-03-06T20:30:00.513Z] Command:       /usr/bin/node-22 /home/kbeck/.npm/_npx/ba4f1959e38407b5/node_modules/.bin/firebase emulators:start --project dataconnecttutorial-c41c2
+[debug] [2026-03-06T20:30:00.513Z] CLI Version:   15.9.0
+[debug] [2026-03-06T20:30:00.513Z] Platform:      linux
+[debug] [2026-03-06T20:30:00.513Z] Node Version:  v22.22.0
+[debug] [2026-03-06T20:30:00.513Z] Time:          Fri Mar 06 2026 13:30:00 GMT-0700 (Mountain Standard Time)
+[debug] [2026-03-06T20:30:00.513Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-06T20:30:01.519Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-06T20:30:01.519Z] > authorizing via signed-in user (kadenb12@gmail.com)
+[info] i  emulators: Starting emulators: auth, hosting, dataconnect {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, hosting, dataconnect"}}
+[debug] [2026-03-06T20:30:01.525Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-06T20:30:01.525Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-06T20:30:01.525Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-06T20:30:01.525Z] [dataconnect.postgres] postgres server for dataconnect only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-06T20:30:01.525Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5059}],"dataconnect":[{"address":"127.0.0.1","family":"IPv4","port":9399},{"address":"::1","family":"IPv6","port":9399}],"dataconnect.postgres":[{"address":"127.0.0.1","family":"IPv4","port":5432}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-03-06T20:30:01.532Z] Write emulator hub locator at /tmp/hub-dataconnecttutorial-c41c2.json
+[info] i  dataconnect: downloading dataconnect-emulator-3.2.1... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-3.2.1..."}}
+[debug] [2026-03-06T20:30:05.064Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-linux-amd64-v3.2.1 
+[debug] [2026-03-06T20:30:05.244Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-linux-amd64-v3.2.1 200
+[debug] [2026-03-06T20:30:05.244Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-linux-amd64-v3.2.1 [stream]
+[info] i  dataconnect: Removing outdated emulator files: dataconnect-emulator-3.1.4 {"metadata":{"emulator":{"name":"dataconnect"},"message":"Removing outdated emulator files: dataconnect-emulator-3.1.4"}}
+[debug] [2026-03-06T20:30:08.245Z] defaultcredentials: writing to file /home/kbeck/.config/firebase/kadenb12_gmail_com_application_default_credentials.json
+[debug] [2026-03-06T20:30:08.267Z] I0306 13:30:08.264991  149476 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8bd2] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.264991  149476 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8bd2] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1566B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T20:30:08.268Z] defaultcredentials: writing to file /home/kbeck/.config/firebase/kadenb12_gmail_com_application_default_credentials.json
+[debug] [2026-03-06T20:30:08.269Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-03-06T20:30:08.269Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-03-06T20:30:08.269Z] Starting Data Connect Emulator with command {"binary":"/home/kbeck/.cache/firebase/emulators/dataconnect-emulator-3.2.1","args":["--logtostderr","-v=2","dev","--listen=127.0.0.1:9399,[::1]:9399","--config_dir=/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"/home/kbeck/.cache/firebase/emulators/dataconnect-emulator-3.2.1\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=127.0.0.1:9399,[::1]:9399\",\"--config_dir=/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-03-06T20:30:08.287Z] I0306 13:30:08.283281  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.283281  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:30:08.288Z] I0306 13:30:08.287372  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 37e3] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.287372  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 37e3] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1566B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[info] i  dataconnect: Started up Postgres server, listening on {"address":"127.0.0.1","family":"IPv4","port":5432} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Started up Postgres server, listening on {\"address\":\"127.0.0.1\",\"family\":\"IPv4\",\"port\":5432}"}}
+[debug] [2026-03-06T20:30:08.291Z] [Data Connect] Connecting to postgres://127.0.0.1:5432/your-database?sslmode=disable}...
+[debug] [2026-03-06T20:30:08.291Z] >>> [apiv2][query] POST http://127.0.0.1:9399/emulator/configure [none]
+[debug] [2026-03-06T20:30:08.291Z] >>> [apiv2][body] POST http://127.0.0.1:9399/emulator/configure {"connectionString":"postgres://127.0.0.1:5432/your-database?sslmode=disable","database":"your-database","serviceId":"your-service-id"}
+[debug] [2026-03-06T20:30:08.293Z] I0306 13:30:08.290439  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.290439  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T20:30:08.293Z] *** [apiv2] error from fetch(http://127.0.0.1:9399/emulator/configure, {"headers":{},"method":"POST","body":"{\"connectionString\":\"postgres://127.0.0.1:5432/your-database?sslmode=disable\",\"database\":\"your-database\",\"serviceId\":\"your-service-id\"}"}): FetchError: request to http://127.0.0.1:9399/emulator/configure failed, reason: connect ECONNREFUSED 127.0.0.1:9399
+[debug] [2026-03-06T20:30:08.293Z] [Data Connect] Retrying connectToPostgress call (1 of 3 attempts): FirebaseError: Data Connect emulator: undefined
+[debug] [2026-03-06T20:30:08.293Z] I0306 13:30:08.293705  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.293705  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T20:30:08.294Z] I0306 13:30:08.293992  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/setup.md [580B] index.d.ts [248B] .guides/usage.md [427B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.293992  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: .guides/setup.md [580B] index.d.ts [248B] .guides/usage.md [427B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] \n"}}
+[debug] [2026-03-06T20:30:08.294Z] I0306 13:30:08.294337  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.294337  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T20:30:08.294Z] I0306 13:30:08.294352  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.294352  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T20:30:08.294Z] I0306 13:30:08.294607  149494 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.294607  149494 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399\n"}}
+[debug] [2026-03-06T20:30:08.294Z] I0306 13:30:08.294640  149494 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:08.294640  149494 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399\n"}}
+[debug] [2026-03-06T20:30:10.294Z] [Data Connect] Connecting to postgres://127.0.0.1:5432/your-database?sslmode=disable}...
+[debug] [2026-03-06T20:30:10.294Z] >>> [apiv2][query] POST http://127.0.0.1:9399/emulator/configure [none]
+[debug] [2026-03-06T20:30:10.294Z] >>> [apiv2][body] POST http://127.0.0.1:9399/emulator/configure {"connectionString":"postgres://127.0.0.1:5432/your-database?sslmode=disable","database":"your-database","serviceId":"your-service-id"}
+[debug] [2026-03-06T20:30:11.844Z] I0306 13:30:11.843976  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id bfc2] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:30:11.843976  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id bfc2] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1566B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T20:30:11.848Z] <<< [apiv2][status] POST http://127.0.0.1:9399/emulator/configure 200
+[debug] [2026-03-06T20:30:11.848Z] <<< [apiv2][body] POST http://127.0.0.1:9399/emulator/configure {}
+[debug] [2026-03-06T20:30:11.848Z] [Data Connect] Successfully connected to postgres://127.0.0.1:5432/your-database?sslmode=disable}
+[debug] [2026-03-06T20:30:11.852Z] Checked if tokens are valid: true, expires at: 1772830837935
+[debug] [2026-03-06T20:30:11.852Z] Checked if tokens are valid: true, expires at: 1772830837935
+[debug] [2026-03-06T20:30:11.852Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2/sites 
+[debug] [2026-03-06T20:30:12.462Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2/sites 200
+[debug] [2026-03-06T20:30:12.462Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2/sites {"sites":[{"name":"projects/dataconnecttutorial-c41c2/sites/dataconnecttutorial-c41c2","defaultUrl":"https://dataconnecttutorial-c41c2.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-03-06T20:30:12.462Z] Checked if tokens are valid: true, expires at: 1772830837935
+[debug] [2026-03-06T20:30:12.462Z] Checked if tokens are valid: true, expires at: 1772830837935
+[debug] [2026-03-06T20:30:12.462Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2/webApps/-/config [none]
+[debug] [2026-03-06T20:30:12.704Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2/webApps/-/config 200
+[debug] [2026-03-06T20:30:12.704Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2/webApps/-/config {"projectId":"dataconnecttutorial-c41c2","storageBucket":"dataconnecttutorial-c41c2.firebasestorage.app","apiKey":"AIzaSyCnbF-N3eROf2OkJ24cd4fVagh8UJMcKB4","authDomain":"dataconnecttutorial-c41c2.firebaseapp.com","messagingSenderId":"290010045681","projectNumber":"290010045681","version":"2"}
+[debug] [2026-03-06T20:30:12.714Z] Checked if tokens are valid: true, expires at: 1772830837935
+[debug] [2026-03-06T20:30:12.714Z] Checked if tokens are valid: true, expires at: 1772830837935
+[debug] [2026-03-06T20:30:12.714Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2 [none]
+[debug] [2026-03-06T20:30:12.999Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2 200
+[debug] [2026-03-06T20:30:12.999Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dataconnecttutorial-c41c2 {"projectId":"dataconnecttutorial-c41c2","projectNumber":"290010045681","displayName":"DataConnectTutorial","name":"projects/dataconnecttutorial-c41c2","resources":{"hostingSite":"dataconnecttutorial-c41c2"},"state":"ACTIVE","etag":"1_ea7e8d23-1deb-4095-ac1d-270b823b3500"}
+[debug] [2026-03-06T20:30:12.999Z] Specified "public" directory "app/dist" does not exist; Deploy to Hosting site "dataconnecttutorial-c41c2" may fail or be empty.
+[info] i  hosting[dataconnecttutorial-c41c2]: Serving hosting files from: app/dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mapp/dist\u001b[22m"}}
+[info] ✔  hosting[dataconnecttutorial-c41c2]: Local server: http://127.0.0.1:5059 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5059\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.15.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.15.0.zip..."}}
+[debug] [2026-03-06T20:30:13.013Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 
+[debug] [2026-03-06T20:30:13.081Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 200
+[debug] [2026-03-06T20:30:13.081Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip [stream]
+[debug] [2026-03-06T20:30:13.427Z] Data is 3538469
+[debug] [2026-03-06T20:30:13.428Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-03-06T20:30:13.428Z] [unzip] Processing entry: client/
+[debug] [2026-03-06T20:30:13.428Z] [unzip] mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/
+[debug] [2026-03-06T20:30:13.428Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2026-03-06T20:30:13.428Z] [unzip] Processing entry: client/favicon-16x16.png
+[debug] [2026-03-06T20:30:13.428Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.428Z] [unzip] Writing file: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/favicon-16x16.png
+[debug] [2026-03-06T20:30:13.429Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2026-03-06T20:30:13.429Z] [unzip] Processing entry: client/safari-pinned-tab.svg
+[debug] [2026-03-06T20:30:13.429Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.429Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/safari-pinned-tab.svg
+[debug] [2026-03-06T20:30:13.431Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2026-03-06T20:30:13.431Z] [unzip] Processing entry: client/favicon.ico
+[debug] [2026-03-06T20:30:13.431Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.431Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/favicon.ico
+[debug] [2026-03-06T20:30:13.432Z] [unzip] Entry: client/index.html (compressed_size=1364 bytes, uncompressed_size=3071 bytes)
+[debug] [2026-03-06T20:30:13.432Z] [unzip] Processing entry: client/index.html
+[debug] [2026-03-06T20:30:13.432Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.432Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/index.html
+[debug] [2026-03-06T20:30:13.433Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2026-03-06T20:30:13.433Z] [unzip] Processing entry: client/android-chrome-192x192.png
+[debug] [2026-03-06T20:30:13.433Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.433Z] [unzip] Writing file: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/android-chrome-192x192.png
+[debug] [2026-03-06T20:30:13.433Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2026-03-06T20:30:13.433Z] [unzip] Processing entry: client/apple-touch-icon.png
+[debug] [2026-03-06T20:30:13.433Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.433Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/apple-touch-icon.png
+[debug] [2026-03-06T20:30:13.434Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2026-03-06T20:30:13.434Z] [unzip] Processing entry: client/android-chrome-512x512.png
+[debug] [2026-03-06T20:30:13.434Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.434Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/android-chrome-512x512.png
+[debug] [2026-03-06T20:30:13.435Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2026-03-06T20:30:13.435Z] [unzip] Processing entry: client/manifest.json
+[debug] [2026-03-06T20:30:13.435Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.435Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/manifest.json
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Processing entry: client/robots.txt
+[debug] [2026-03-06T20:30:13.436Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Writing file: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/robots.txt
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Processing entry: client/mstile-150x150.png
+[debug] [2026-03-06T20:30:13.436Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Writing file: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/mstile-150x150.png
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-03-06T20:30:13.436Z] [unzip] Processing entry: client/assets/
+[debug] [2026-03-06T20:30:13.436Z] [unzip] mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/
+[debug] [2026-03-06T20:30:13.437Z] [unzip] Entry: client/assets/index-BX-A56oj.js (compressed_size=582089 bytes, uncompressed_size=2092775 bytes)
+[debug] [2026-03-06T20:30:13.437Z] [unzip] Processing entry: client/assets/index-BX-A56oj.js
+[debug] [2026-03-06T20:30:13.437Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets
+[debug] [2026-03-06T20:30:13.437Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/index-BX-A56oj.js
+[debug] [2026-03-06T20:30:13.445Z] [unzip] Entry: client/assets/index-CjB9C900.css (compressed_size=35979 bytes, uncompressed_size=298654 bytes)
+[debug] [2026-03-06T20:30:13.445Z] [unzip] Processing entry: client/assets/index-CjB9C900.css
+[debug] [2026-03-06T20:30:13.445Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets
+[debug] [2026-03-06T20:30:13.445Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/index-CjB9C900.css
+[debug] [2026-03-06T20:30:13.446Z] [unzip] Entry: client/assets/index-BX-A56oj.js.map (compressed_size=2362482 bytes, uncompressed_size=10036679 bytes)
+[debug] [2026-03-06T20:30:13.447Z] [unzip] Processing entry: client/assets/index-BX-A56oj.js.map
+[debug] [2026-03-06T20:30:13.447Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets
+[debug] [2026-03-06T20:30:13.447Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/index-BX-A56oj.js.map
+[debug] [2026-03-06T20:30:13.475Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-03-06T20:30:13.476Z] [unzip] Processing entry: client/assets/extensions/
+[debug] [2026-03-06T20:30:13.476Z] [unzip] mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/extensions/
+[debug] [2026-03-06T20:30:13.476Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2026-03-06T20:30:13.476Z] [unzip] Processing entry: client/assets/extensions/default-extension.png
+[debug] [2026-03-06T20:30:13.476Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/extensions
+[debug] [2026-03-06T20:30:13.476Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/extensions/default-extension.png
+[debug] [2026-03-06T20:30:13.476Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-03-06T20:30:13.476Z] [unzip] Processing entry: client/assets/img/
+[debug] [2026-03-06T20:30:13.476Z] [unzip] mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/img/
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Processing entry: client/assets/img/database.png
+[debug] [2026-03-06T20:30:13.477Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/img
+[debug] [2026-03-06T20:30:13.477Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/img/database.png
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Processing entry: client/assets/provider-icons/
+[debug] [2026-03-06T20:30:13.477Z] [unzip] mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_saml.svg
+[debug] [2026-03-06T20:30:13.477Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.477Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_saml.svg
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2026-03-06T20:30:13.477Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_phone.svg
+[debug] [2026-03-06T20:30:13.478Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.478Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_phone.svg
+[debug] [2026-03-06T20:30:13.478Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2026-03-06T20:30:13.478Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2026-03-06T20:30:13.478Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.478Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2026-03-06T20:30:13.478Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2026-03-06T20:30:13.478Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2026-03-06T20:30:13.478Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.478Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2026-03-06T20:30:13.479Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2026-03-06T20:30:13.479Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_apple.svg
+[debug] [2026-03-06T20:30:13.479Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.479Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_apple.svg
+[debug] [2026-03-06T20:30:13.479Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2026-03-06T20:30:13.479Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_github.svg
+[debug] [2026-03-06T20:30:13.479Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.479Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_github.svg
+[debug] [2026-03-06T20:30:13.479Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2026-03-06T20:30:13.479Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2026-03-06T20:30:13.479Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.479Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2026-03-06T20:30:13.480Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2026-03-06T20:30:13.480Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2026-03-06T20:30:13.480Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.480Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2026-03-06T20:30:13.480Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2026-03-06T20:30:13.480Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2026-03-06T20:30:13.480Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.480Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2026-03-06T20:30:13.480Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2026-03-06T20:30:13.480Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2026-03-06T20:30:13.481Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.481Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2026-03-06T20:30:13.481Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2026-03-06T20:30:13.481Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_email.svg
+[debug] [2026-03-06T20:30:13.481Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.481Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_email.svg
+[debug] [2026-03-06T20:30:13.481Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2026-03-06T20:30:13.481Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_google.svg
+[debug] [2026-03-06T20:30:13.481Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.481Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_google.svg
+[debug] [2026-03-06T20:30:13.482Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2026-03-06T20:30:13.482Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2026-03-06T20:30:13.482Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2026-03-06T20:30:13.482Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2026-03-06T20:30:13.482Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2026-03-06T20:30:13.482Z] [unzip] Processing entry: client/browserconfig.xml
+[debug] [2026-03-06T20:30:13.482Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.482Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/browserconfig.xml
+[debug] [2026-03-06T20:30:13.482Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2026-03-06T20:30:13.482Z] [unzip] Processing entry: client/favicon-32x32.png
+[debug] [2026-03-06T20:30:13.482Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2026-03-06T20:30:13.483Z] [unzip] Writing file: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/client/favicon-32x32.png
+[debug] [2026-03-06T20:30:13.483Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-03-06T20:30:13.483Z] [unzip] Processing entry: server/
+[debug] [2026-03-06T20:30:13.483Z] [unzip] mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/server/
+[debug] [2026-03-06T20:30:13.483Z] [unzip] Entry: server/server.mjs.map (compressed_size=217845 bytes, uncompressed_size=944978 bytes)
+[debug] [2026-03-06T20:30:13.483Z] [unzip] Processing entry: server/server.mjs.map
+[debug] [2026-03-06T20:30:13.483Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/server
+[debug] [2026-03-06T20:30:13.483Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/server/server.mjs.map
+[debug] [2026-03-06T20:30:13.485Z] [unzip] Entry: server/server.mjs (compressed_size=276407 bytes, uncompressed_size=933701 bytes)
+[debug] [2026-03-06T20:30:13.485Z] [unzip] Processing entry: server/server.mjs
+[debug] [2026-03-06T20:30:13.485Z] [unzip] else mkdir: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/server
+[debug] [2026-03-06T20:30:13.485Z] [unzip] deflating: /home/kbeck/.cache/firebase/emulators/ui-v1.15.0/server/server.mjs
+[debug] [2026-03-06T20:30:13.490Z] >>> [apiv2][query] GET http://127.0.0.1:9399/emulator/info [none]
+[debug] [2026-03-06T20:30:13.491Z] <<< [apiv2][status] GET http://127.0.0.1:9399/emulator/info 200
+[debug] [2026-03-06T20:30:13.492Z] <<< [apiv2][body] GET http://127.0.0.1:9399/emulator/info {"version":"","services":[{"serviceId":"your-service-id","connectionString":"dbname='your-database' host='127.0.0.1' port='5432' sslmode='disable' dbname='your-database'"}]}
+[debug] [2026-03-06T20:30:13.494Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5059 │ n/a                        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Data Connect   │ 127.0.0.1:9399 │ n/a                        │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-03-06T20:50:58.303Z] I0306 13:50:58.303461  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:50:58.303461  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:50:58.304Z] E0306 13:50:58.304548  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:17:6: OBJECT Movie: must define one or more fields.
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0306 13:50:58.304548  149494 load.go:73] Could not load sources: \nErrors: schema/schema.gql:17:6: OBJECT Movie: must define one or more fields.\n"}}
+[debug] [2026-03-06T20:50:58.305Z] I0306 13:50:58.305068  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:50:58.305068  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T20:50:58.305Z] I0306 13:50:58.305081  149494 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:50:58.305081  149494 load.go:74] Finished reloading\n"}}
+[debug] [2026-03-06T20:51:08.295Z] I0306 13:51:08.295384  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:08.295384  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:51:08.297Z] E0306 13:51:08.297347  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:20:3: expected at least one definition, found }
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0306 13:51:08.297347  149494 load.go:73] Could not load sources: \nErrors: schema/schema.gql:20:3: expected at least one definition, found }\n"}}
+[debug] [2026-03-06T20:51:08.297Z] I0306 13:51:08.297872  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 13:51:08.297887  149494 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:08.297872  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] \nI0306 13:51:08.297887  149494 load.go:74] Finished reloading\n"}}
+[debug] [2026-03-06T20:51:18.305Z] I0306 13:51:18.304961  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:18.304961  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:51:18.306Z] E0306 13:51:18.306725  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:20:3: Expected Name, found }
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0306 13:51:18.306725  149494 load.go:73] Could not load sources: \nErrors: schema/schema.gql:20:3: Expected Name, found }\n"}}
+[debug] [2026-03-06T20:51:18.307Z] I0306 13:51:18.307270  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+I0306 13:51:18.307289  149494 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:18.307270  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] \nI0306 13:51:18.307289  149494 load.go:74] Finished reloading\n"}}
+[debug] [2026-03-06T20:51:28.305Z] I0306 13:51:28.304881  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:28.304881  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:51:28.609Z] I0306 13:51:28.609430  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie" ("id" uuid NOT NULL, PRIMARY KEY ("id"))
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:28.609430  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"movie\" (\"id\" uuid NOT NULL, PRIMARY KEY (\"id\"))\n"}}
+[debug] [2026-03-06T20:51:29.307Z] I0306 13:51:29.306807  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 01b5] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1580B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:29.306807  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 01b5] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1580B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T20:51:29.309Z] I0306 13:51:29.309590  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:29.309590  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T20:51:29.313Z] I0306 13:51:29.313406  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [3486B] main/relation.gql [838B] main/query.gql [1251B] main/mutation.gql [3320B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:29.313406  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] main/input.gql [3486B] main/relation.gql [838B] main/query.gql [1251B] main/mutation.gql [3320B] \n"}}
+[debug] [2026-03-06T20:51:29.313Z] I0306 13:51:29.313642  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] index.cjs.js [161B] README.md [2769B] .guides/usage.md [427B] index.d.ts [326B] esm/package.json [17B] package.json [641B] .guides/setup.md [580B] .guides/config.json [236B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:29.313642  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: esm/index.esm.js [126B] index.cjs.js [161B] README.md [2769B] .guides/usage.md [427B] index.d.ts [326B] esm/package.json [17B] package.json [641B] .guides/setup.md [580B] .guides/config.json [236B] \n"}}
+[debug] [2026-03-06T20:51:29.314Z] I0306 13:51:29.313913  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 13:51:29.313923  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:29.313913  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\nI0306 13:51:29.313923  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T20:51:38.296Z] I0306 13:51:38.295757  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:38.295757  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:51:38.297Z] E0306 13:51:38.297479  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:21:3: Expected :, found }
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0306 13:51:38.297479  149494 load.go:73] Could not load sources: \nErrors: schema/schema.gql:21:3: Expected :, found }\n"}}
+[debug] [2026-03-06T20:51:38.298Z] I0306 13:51:38.298180  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [3486B] main/relation.gql [838B] main/query.gql [1251B] main/mutation.gql [3320B] 
+I0306 13:51:38.298200  149494 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:38.298180  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] main/input.gql [3486B] main/relation.gql [838B] main/query.gql [1251B] main/mutation.gql [3320B] \nI0306 13:51:38.298200  149494 load.go:74] Finished reloading\n"}}
+[debug] [2026-03-06T20:51:48.305Z] I0306 13:51:48.305561  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:48.305561  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T20:51:48.960Z] I0306 13:51:48.960473  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+Step 2: ALTER TABLE "public"."movie" ALTER COLUMN "id" SET DEFAULT uuid_generate_v4(), ADD COLUMN "title" text NOT NULL
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:48.960473  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"\nStep 2: ALTER TABLE \"public\".\"movie\" ALTER COLUMN \"id\" SET DEFAULT uuid_generate_v4(), ADD COLUMN \"title\" text NOT NULL\n"}}
+[debug] [2026-03-06T20:51:49.709Z] I0306 13:51:49.708810  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 43f1] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1625B] 
+Connector "movie-connector": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:49.708810  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 43f1] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1625B] \nConnector \"movie-connector\": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] \n"}}
+[debug] [2026-03-06T20:51:49.712Z] I0306 13:51:49.712302  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:49.712302  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T20:51:49.714Z] I0306 13:51:49.714936  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [4121B] main/relation.gql [1201B] main/query.gql [1251B] main/mutation.gql [3320B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:49.714936  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] main/input.gql [4121B] main/relation.gql [1201B] main/query.gql [1251B] main/mutation.gql [3320B] \n"}}
+[debug] [2026-03-06T20:51:49.715Z] I0306 13:51:49.715187  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.d.ts [326B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/setup.md [580B] .guides/config.json [236B] .guides/usage.md [427B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:49.715187  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: index.d.ts [326B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/setup.md [580B] .guides/config.json [236B] .guides/usage.md [427B] \n"}}
+[debug] [2026-03-06T20:51:49.715Z] I0306 13:51:49.715395  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:49.715395  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T20:51:49.715Z] I0306 13:51:49.715410  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 13:51:49.715410  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:19:18.304Z] I0306 14:19:18.304090  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:18.304090  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:19:18.305Z] E0306 14:19:18.305613  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:21:15: Expected :, found <Invalid>
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0306 14:19:18.305613  149494 load.go:73] Could not load sources: \nErrors: schema/schema.gql:21:15: Expected :, found <Invalid>\n"}}
+[debug] [2026-03-06T21:19:18.306Z] I0306 14:19:18.306467  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [1251B] main/mutation.gql [3320B] main/input.gql [4121B] main/relation.gql [1201B] prelude.gql [80731B] 
+I0306 14:19:18.306483  149494 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:18.306467  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/query.gql [1251B] main/mutation.gql [3320B] main/input.gql [4121B] main/relation.gql [1201B] prelude.gql [80731B] \nI0306 14:19:18.306483  149494 load.go:74] Finished reloading\n"}}
+[debug] [2026-03-06T21:19:28.304Z] I0306 14:19:28.304308  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:28.304308  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:19:28.955Z] I0306 14:19:28.954720  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "image_url" text NOT NULL
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:28.954720  149494 migrate.go:24] Running migration SQL:\nStep 1: ALTER TABLE \"public\".\"movie\" ADD COLUMN \"image_url\" text NOT NULL\n"}}
+[debug] [2026-03-06T21:19:29.647Z] I0306 14:19:29.646844  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 23bf] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1652B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:29.646844  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 23bf] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1652B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:19:29.649Z] I0306 14:19:29.649805  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:29.649805  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:19:29.652Z] I0306 14:19:29.652263  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [1251B] main/mutation.gql [3320B] prelude.gql [80731B] main/input.gql [4795B] main/relation.gql [1573B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:29.652263  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/query.gql [1251B] main/mutation.gql [3320B] prelude.gql [80731B] main/input.gql [4795B] main/relation.gql [1573B] \n"}}
+[debug] [2026-03-06T21:19:29.652Z] I0306 14:19:29.652450  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.cjs.js [161B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [326B] esm/package.json [17B] package.json [641B] README.md [2769B] .guides/setup.md [580B] esm/index.esm.js [126B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:29.652450  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: index.cjs.js [161B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [326B] esm/package.json [17B] package.json [641B] README.md [2769B] .guides/setup.md [580B] esm/index.esm.js [126B] \n"}}
+[debug] [2026-03-06T21:19:29.653Z] I0306 14:19:29.653492  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:29.653492  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:19:29.653Z] I0306 14:19:29.653518  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:29.653518  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:19:38.295Z] I0306 14:19:38.295717  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:38.295717  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:19:38.941Z] I0306 14:19:38.941424  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "genre" text NULL, ADD COLUMN "release_year" integer NULL
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:38.941424  149494 migrate.go:24] Running migration SQL:\nStep 1: ALTER TABLE \"public\".\"movie\" ADD COLUMN \"genre\" text NULL, ADD COLUMN \"release_year\" integer NULL\n"}}
+[debug] [2026-03-06T21:19:39.633Z] I0306 14:19:39.633112  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6150] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1691B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:39.633112  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6150] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1691B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:19:39.637Z] I0306 14:19:39.637220  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:39.637220  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:19:39.639Z] I0306 14:19:39.639453  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [7173B] main/relation.gql [3143B] main/query.gql [1251B] main/mutation.gql [3320B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:39.639453  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] main/input.gql [7173B] main/relation.gql [3143B] main/query.gql [1251B] main/mutation.gql [3320B] \n"}}
+[debug] [2026-03-06T21:19:39.639Z] I0306 14:19:39.639663  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.cjs.js [161B] README.md [2769B] .guides/usage.md [427B] esm/index.esm.js [126B] esm/package.json [17B] package.json [641B] .guides/setup.md [580B] .guides/config.json [236B] index.d.ts [326B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:39.639663  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: index.cjs.js [161B] README.md [2769B] .guides/usage.md [427B] esm/index.esm.js [126B] esm/package.json [17B] package.json [641B] .guides/setup.md [580B] .guides/config.json [236B] index.d.ts [326B] \n"}}
+[debug] [2026-03-06T21:19:39.640Z] I0306 14:19:39.640427  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:19:39.640459  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:39.640427  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\nI0306 14:19:39.640459  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:19:48.303Z] I0306 14:19:48.303034  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:48.303034  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:19:48.948Z] I0306 14:19:48.948338  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "rating" double precision NULL
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:48.948338  149494 migrate.go:24] Running migration SQL:\nStep 1: ALTER TABLE \"public\".\"movie\" ADD COLUMN \"rating\" double precision NULL\n"}}
+[debug] [2026-03-06T21:19:49.635Z] I0306 14:19:49.635408  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 2b05] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1704B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:49.635408  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 2b05] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1704B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:19:49.639Z] I0306 14:19:49.639038  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:49.639038  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:19:49.641Z] I0306 14:19:49.641371  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/mutation.gql [3320B] prelude.gql [80731B] main/input.gql [8796B] main/relation.gql [4281B] main/query.gql [1251B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:49.641371  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/mutation.gql [3320B] prelude.gql [80731B] main/input.gql [8796B] main/relation.gql [4281B] main/query.gql [1251B] \n"}}
+[debug] [2026-03-06T21:19:49.641Z] I0306 14:19:49.641573  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.d.ts [326B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] .guides/setup.md [580B] esm/index.esm.js [126B] .guides/config.json [236B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:49.641573  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: index.d.ts [326B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] .guides/setup.md [580B] esm/index.esm.js [126B] .guides/config.json [236B] \n"}}
+[debug] [2026-03-06T21:19:49.642Z] I0306 14:19:49.642116  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:19:49.642134  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:49.642116  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\nI0306 14:19:49.642134  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:19:58.302Z] I0306 14:19:58.302657  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:58.302657  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:19:58.303Z] E0306 14:19:58.303808  149494 load.go:73] Could not load sources: 
+Errors: schema/schema.gql:26:3: Expected Name, found }
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0306 14:19:58.303808  149494 load.go:73] Could not load sources: \nErrors: schema/schema.gql:26:3: Expected Name, found }\n"}}
+[debug] [2026-03-06T21:19:58.304Z] I0306 14:19:58.304533  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/input.gql [8796B] main/relation.gql [4281B] main/query.gql [1251B] main/mutation.gql [3320B] prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:58.304533  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/input.gql [8796B] main/relation.gql [4281B] main/query.gql [1251B] main/mutation.gql [3320B] prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T21:19:58.304Z] I0306 14:19:58.304544  149494 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:19:58.304544  149494 load.go:74] Finished reloading\n"}}
+[debug] [2026-03-06T21:20:08.296Z] I0306 14:20:08.295865  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:08.295865  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:20:08.949Z] I0306 14:20:08.948917  149494 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."movie" ADD COLUMN "description" text NULL, ADD COLUMN "tags" text[] NULL
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:08.948917  149494 migrate.go:24] Running migration SQL:\nStep 1: ALTER TABLE \"public\".\"movie\" ADD COLUMN \"description\" text NULL, ADD COLUMN \"tags\" text[] NULL\n"}}
+[debug] [2026-03-06T21:20:09.640Z] I0306 14:20:09.640138  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8a46] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1747B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:09.640138  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8a46] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1747B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:20:09.644Z] I0306 14:20:09.644358  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:09.644358  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:20:09.648Z] I0306 14:20:09.648498  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [9851B] main/relation.gql [4662B] main/query.gql [1251B] main/mutation.gql [3320B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:09.648498  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] main/input.gql [9851B] main/relation.gql [4662B] main/query.gql [1251B] main/mutation.gql [3320B] \n"}}
+[debug] [2026-03-06T21:20:09.648Z] I0306 14:20:09.648722  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] esm/package.json [17B] .guides/usage.md [427B] .guides/setup.md [580B] index.d.ts [326B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/config.json [236B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:09.648722  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: esm/index.esm.js [126B] esm/package.json [17B] .guides/usage.md [427B] .guides/setup.md [580B] index.d.ts [326B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/config.json [236B] \n"}}
+[debug] [2026-03-06T21:20:09.648Z] I0306 14:20:09.648931  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:09.648931  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:20:09.648Z] I0306 14:20:09.648943  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:09.648943  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:20:38.295Z] I0306 14:20:38.295635  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:38.295635  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:20:38.943Z] I0306 14:20:38.943353  149494 migrate.go:24] Running migration SQL:
+Step 1: DROP TABLE "public"."movie"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:38.943353  149494 migrate.go:24] Running migration SQL:\nStep 1: DROP TABLE \"public\".\"movie\"\n"}}
+[debug] [2026-03-06T21:20:39.290Z] I0306 14:20:39.290380  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id b7e7] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1566B] 
+Connector "movie-connector": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.290380  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id b7e7] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1566B] \nConnector \"movie-connector\": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] \n"}}
+[debug] [2026-03-06T21:20:39.292Z] I0306 14:20:39.292644  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.292644  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:20:39.297Z] I0306 14:20:39.297050  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.297050  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T21:20:39.297Z] I0306 14:20:39.297139  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/input.gql"
+I0306 14:20:39.297170  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/mutation.gql"
+I0306 14:20:39.297186  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/query.gql"
+I0306 14:20:39.297204  149494 collector.go:114] schema extensions deleted obsolete file "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/relation.gql"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.297139  149494 collector.go:114] schema extensions deleted obsolete file \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/input.gql\"\nI0306 14:20:39.297170  149494 collector.go:114] schema extensions deleted obsolete file \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/mutation.gql\"\nI0306 14:20:39.297186  149494 collector.go:114] schema extensions deleted obsolete file \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/query.gql\"\nI0306 14:20:39.297204  149494 collector.go:114] schema extensions deleted obsolete file \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema/main/relation.gql\"\n"}}
+[debug] [2026-03-06T21:20:39.297Z] I0306 14:20:39.297459  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/config.json [236B] index.d.ts [248B] .guides/setup.md [580B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.297459  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: .guides/config.json [236B] index.d.ts [248B] .guides/setup.md [580B] esm/index.esm.js [126B] esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] \n"}}
+[debug] [2026-03-06T21:20:39.297Z] I0306 14:20:39.297656  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.297656  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:20:39.297Z] I0306 14:20:39.297670  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:39.297670  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:20:48.302Z] I0306 14:20:48.302674  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:48.302674  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:20:48.603Z] I0306 14:20:48.603293  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "description" text NULL, "genre" text NULL, "image_url" text NOT NULL, "rating" double precision NULL, "release_year" integer NULL, "tags" text[] NULL, "title" text NOT NULL, PRIMARY KEY ("id"))
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:48.603293  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"movie\" (\"id\" uuid NOT NULL DEFAULT uuid_generate_v4(), \"description\" text NULL, \"genre\" text NULL, \"image_url\" text NOT NULL, \"rating\" double precision NULL, \"release_year\" integer NULL, \"tags\" text[] NULL, \"title\" text NOT NULL, PRIMARY KEY (\"id\"))\n"}}
+[debug] [2026-03-06T21:20:49.291Z] I0306 14:20:49.291234  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id b334] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1747B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:49.291234  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id b334] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1747B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:20:49.295Z] I0306 14:20:49.295293  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:49.295293  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:20:49.299Z] I0306 14:20:49.299271  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [80731B] main/input.gql [9851B] main/relation.gql [4662B] main/query.gql [1251B] main/mutation.gql [3320B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:49.299271  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: prelude.gql [80731B] main/input.gql [9851B] main/relation.gql [4662B] main/query.gql [1251B] main/mutation.gql [3320B] \n"}}
+[debug] [2026-03-06T21:20:49.299Z] I0306 14:20:49.299534  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/usage.md [427B] .guides/setup.md [580B] .guides/config.json [236B] index.d.ts [326B] esm/package.json [17B] README.md [2769B] esm/index.esm.js [126B] index.cjs.js [161B] package.json [641B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:49.299534  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: .guides/usage.md [427B] .guides/setup.md [580B] .guides/config.json [236B] index.d.ts [326B] esm/package.json [17B] README.md [2769B] esm/index.esm.js [126B] index.cjs.js [161B] package.json [641B] \n"}}
+[debug] [2026-03-06T21:20:49.299Z] I0306 14:20:49.299833  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:49.299833  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:20:49.299Z] I0306 14:20:49.299846  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:49.299846  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:20:58.300Z] I0306 14:20:58.299785  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:58.299785  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:20:58.949Z] I0306 14:20:58.949315  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie_metadata" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "movie_id" uuid NOT NULL, "director" text NULL, PRIMARY KEY ("id"), CONSTRAINT "movie_metadata_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE)
+Step 2: CREATE INDEX "movie_metadata_movieId_idx" ON "public"."movie_metadata" ("movie_id")
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:58.949315  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"movie_metadata\" (\"id\" uuid NOT NULL DEFAULT uuid_generate_v4(), \"movie_id\" uuid NOT NULL, \"director\" text NULL, PRIMARY KEY (\"id\"), CONSTRAINT \"movie_metadata_movie_id_fkey\" FOREIGN KEY (\"movie_id\") REFERENCES \"public\".\"movie\" (\"id\") ON DELETE CASCADE)\nStep 2: CREATE INDEX \"movie_metadata_movieId_idx\" ON \"public\".\"movie_metadata\" (\"movie_id\")\n"}}
+[debug] [2026-03-06T21:20:59.686Z] I0306 14:20:59.686495  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8b31] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2042B] 
+Connector "movie-connector": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:59.686495  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 8b31] UpdateResources(): done\nMain schema: sources: schema/schema.gql [2042B] \nConnector \"movie-connector\": sources: movie-connector/queries.gql [3733B] movie-connector/mutations.gql [2253B] \n"}}
+[debug] [2026-03-06T21:20:59.691Z] I0306 14:20:59.691821  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:59.691821  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:20:59.695Z] I0306 14:20:59.695784  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [519B] main/input.gql [15501B] main/relation.gql [7194B] main/query.gql [2584B] main/mutation.gql [6975B] prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:59.695784  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/implicit.gql [519B] main/input.gql [15501B] main/relation.gql [7194B] main/query.gql [2584B] main/mutation.gql [6975B] prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T21:20:59.696Z] I0306 14:20:59.696286  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] package.json [641B] README.md [2769B] .guides/setup.md [580B] esm/package.json [17B] index.cjs.js [161B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [420B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:59.696286  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: esm/index.esm.js [126B] package.json [641B] README.md [2769B] .guides/setup.md [580B] esm/package.json [17B] index.cjs.js [161B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [420B] \n"}}
+[debug] [2026-03-06T21:20:59.696Z] I0306 14:20:59.696659  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:59.696659  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:20:59.696Z] I0306 14:20:59.696673  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:20:59.696673  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:22:18.305Z] I0306 14:22:18.305513  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:18.305513  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:22:18.959Z] I0306 14:22:18.959443  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."actor" ("id" uuid NOT NULL, "image_url" text NOT NULL, "name" character varying(30) NOT NULL, PRIMARY KEY ("id"))
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:18.959443  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"actor\" (\"id\" uuid NOT NULL, \"image_url\" text NOT NULL, \"name\" character varying(30) NOT NULL, PRIMARY KEY (\"id\"))\n"}}
+[debug] [2026-03-06T21:22:19.652Z] I0306 14:22:19.652687  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6cd2] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2127B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:19.652687  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6cd2] UpdateResources(): done\nMain schema: sources: schema/schema.gql [2127B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:22:19.658Z] I0306 14:22:19.658675  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:19.658675  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:22:19.662Z] I0306 14:22:19.662435  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [519B] main/input.gql [20283B] main/relation.gql [8764B] main/query.gql [3813B] main/mutation.gql [10270B] prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:19.662435  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/implicit.gql [519B] main/input.gql [20283B] main/relation.gql [8764B] main/query.gql [3813B] main/mutation.gql [10270B] prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T21:22:19.662Z] I0306 14:22:19.662762  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: .guides/setup.md [580B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] .guides/usage.md [427B] index.d.ts [498B] index.cjs.js [161B] package.json [641B] README.md [2769B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:19.662762  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: .guides/setup.md [580B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] .guides/usage.md [427B] index.d.ts [498B] index.cjs.js [161B] package.json [641B] README.md [2769B] \n"}}
+[debug] [2026-03-06T21:22:19.663Z] I0306 14:22:19.663603  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:22:19.663623  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:19.663603  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\nI0306 14:22:19.663623  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:22:28.303Z] I0306 14:22:28.303083  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:28.303083  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:22:28.956Z] I0306 14:22:28.956508  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."movie_actor" ("movie_id" uuid NOT NULL, "actor_id" uuid NOT NULL, "role" text NOT NULL, PRIMARY KEY ("movie_id", "actor_id"), CONSTRAINT "movie_actor_actor_id_fkey" FOREIGN KEY ("actor_id") REFERENCES "public"."actor" ("id") ON DELETE CASCADE, CONSTRAINT "movie_actor_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE)
+Step 2: CREATE INDEX "movie_actor_actorId_idx" ON "public"."movie_actor" ("actor_id")
+Step 3: CREATE INDEX "movie_actor_movieId_idx" ON "public"."movie_actor" ("movie_id")
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:28.956508  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"movie_actor\" (\"movie_id\" uuid NOT NULL, \"actor_id\" uuid NOT NULL, \"role\" text NOT NULL, PRIMARY KEY (\"movie_id\", \"actor_id\"), CONSTRAINT \"movie_actor_actor_id_fkey\" FOREIGN KEY (\"actor_id\") REFERENCES \"public\".\"actor\" (\"id\") ON DELETE CASCADE, CONSTRAINT \"movie_actor_movie_id_fkey\" FOREIGN KEY (\"movie_id\") REFERENCES \"public\".\"movie\" (\"id\") ON DELETE CASCADE)\nStep 2: CREATE INDEX \"movie_actor_actorId_idx\" ON \"public\".\"movie_actor\" (\"actor_id\")\nStep 3: CREATE INDEX \"movie_actor_movieId_idx\" ON \"public\".\"movie_actor\" (\"movie_id\")\n"}}
+[debug] [2026-03-06T21:22:29.743Z] I0306 14:22:29.743175  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6a8a] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2533B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:29.743175  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id 6a8a] UpdateResources(): done\nMain schema: sources: schema/schema.gql [2533B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:22:29.749Z] I0306 14:22:29.749248  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:29.749248  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:22:29.752Z] I0306 14:22:29.752670  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [5044B] prelude.gql [80731B] main/mutation.gql [13664B] main/implicit.gql [1026B] main/input.gql [26753B] main/relation.gql [13838B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:29.752670  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/query.gql [5044B] prelude.gql [80731B] main/mutation.gql [13664B] main/implicit.gql [1026B] main/input.gql [26753B] main/relation.gql [13838B] \n"}}
+[debug] [2026-03-06T21:22:29.752Z] I0306 14:22:29.752902  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/index.esm.js [126B] esm/package.json [17B] README.md [2769B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [614B] index.cjs.js [161B] package.json [641B] .guides/setup.md [580B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:29.752902  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: esm/index.esm.js [126B] esm/package.json [17B] README.md [2769B] .guides/usage.md [427B] .guides/config.json [236B] index.d.ts [614B] index.cjs.js [161B] package.json [641B] .guides/setup.md [580B] \n"}}
+[debug] [2026-03-06T21:22:29.753Z] I0306 14:22:29.753120  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:29.753120  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:22:29.753Z] I0306 14:22:29.753133  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:29.753133  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:22:48.305Z] I0306 14:22:48.304890  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:48.304890  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:22:48.963Z] I0306 14:22:48.962435  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."user" ("id" text NOT NULL, "username" character varying(50) NOT NULL, PRIMARY KEY ("id"))
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:48.962435  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"user\" (\"id\" text NOT NULL, \"username\" character varying(50) NOT NULL, PRIMARY KEY (\"id\"))\n"}}
+[debug] [2026-03-06T21:22:49.659Z] I0306 14:22:49.659504  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id fe9f] UpdateResources(): done
+Main schema: sources: schema/schema.gql [2706B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:49.659504  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id fe9f] UpdateResources(): done\nMain schema: sources: schema/schema.gql [2706B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:22:49.666Z] I0306 14:22:49.666679  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:49.666679  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:22:49.671Z] I0306 14:22:49.671035  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [1026B] prelude.gql [80731B] main/input.gql [30892B] main/relation.gql [15039B] main/query.gql [6380B] main/mutation.gql [17154B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:49.671035  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/implicit.gql [1026B] prelude.gql [80731B] main/input.gql [30892B] main/relation.gql [15039B] main/query.gql [6380B] main/mutation.gql [17154B] \n"}}
+[debug] [2026-03-06T21:22:49.671Z] I0306 14:22:49.671280  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/setup.md [580B] index.d.ts [686B] esm/index.esm.js [126B] .guides/usage.md [427B] .guides/config.json [236B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:49.671280  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: esm/package.json [17B] index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/setup.md [580B] index.d.ts [686B] esm/index.esm.js [126B] .guides/usage.md [427B] .guides/config.json [236B] \n"}}
+[debug] [2026-03-06T21:22:49.671Z] I0306 14:22:49.671494  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:49.671494  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\n"}}
+[debug] [2026-03-06T21:22:49.671Z] I0306 14:22:49.671509  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:22:49.671509  149494 load.go:109] Finished reloading\n"}}
+[debug] [2026-03-06T21:23:38.295Z] I0306 14:23:38.295569  149494 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:38.295569  149494 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-03-06T21:23:38.955Z] I0306 14:23:38.954862  149494 migrate.go:24] Running migration SQL:
+Step 1: CREATE TABLE "public"."FavoriteMovies" ("user_id" text NOT NULL, "movie_id" uuid NOT NULL, PRIMARY KEY ("user_id", "movie_id"), CONSTRAINT "FavoriteMovies_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE, CONSTRAINT "FavoriteMovies_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 2: CREATE INDEX "FavoriteMovies_movieId_idx" ON "public"."FavoriteMovies" ("movie_id")
+Step 3: CREATE INDEX "FavoriteMovies_userId_idx" ON "public"."FavoriteMovies" ("user_id")
+Step 4: CREATE TABLE "public"."Reviews" ("movie_id" uuid NOT NULL, "user_id" text NOT NULL, "id" uuid NOT NULL DEFAULT uuid_generate_v4(), "rating" integer NULL, "review_date" date NOT NULL, "review_text" text NULL, PRIMARY KEY ("movie_id", "user_id"), CONSTRAINT "Reviews_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE, CONSTRAINT "Reviews_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 5: CREATE INDEX "Reviews_movieId_idx" ON "public"."Reviews" ("movie_id")
+Step 6: CREATE INDEX "Reviews_userId_idx" ON "public"."Reviews" ("user_id")
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:38.954862  149494 migrate.go:24] Running migration SQL:\nStep 1: CREATE TABLE \"public\".\"FavoriteMovies\" (\"user_id\" text NOT NULL, \"movie_id\" uuid NOT NULL, PRIMARY KEY (\"user_id\", \"movie_id\"), CONSTRAINT \"FavoriteMovies_movie_id_fkey\" FOREIGN KEY (\"movie_id\") REFERENCES \"public\".\"movie\" (\"id\") ON DELETE CASCADE, CONSTRAINT \"FavoriteMovies_user_id_fkey\" FOREIGN KEY (\"user_id\") REFERENCES \"public\".\"user\" (\"id\") ON DELETE CASCADE)\nStep 2: CREATE INDEX \"FavoriteMovies_movieId_idx\" ON \"public\".\"FavoriteMovies\" (\"movie_id\")\nStep 3: CREATE INDEX \"FavoriteMovies_userId_idx\" ON \"public\".\"FavoriteMovies\" (\"user_id\")\nStep 4: CREATE TABLE \"public\".\"Reviews\" (\"movie_id\" uuid NOT NULL, \"user_id\" text NOT NULL, \"id\" uuid NOT NULL DEFAULT uuid_generate_v4(), \"rating\" integer NULL, \"review_date\" date NOT NULL, \"review_text\" text NULL, PRIMARY KEY (\"movie_id\", \"user_id\"), CONSTRAINT \"Reviews_movie_id_fkey\" FOREIGN KEY (\"movie_id\") REFERENCES \"public\".\"movie\" (\"id\") ON DELETE CASCADE, CONSTRAINT \"Reviews_user_id_fkey\" FOREIGN KEY (\"user_id\") REFERENCES \"public\".\"user\" (\"id\") ON DELETE CASCADE)\nStep 5: CREATE INDEX \"Reviews_movieId_idx\" ON \"public\".\"Reviews\" (\"movie_id\")\nStep 6: CREATE INDEX \"Reviews_userId_idx\" ON \"public\".\"Reviews\" (\"user_id\")\n"}}
+[debug] [2026-03-06T21:23:39.866Z] I0306 14:23:39.866187  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id af0d] UpdateResources(): done
+Main schema: sources: schema/schema.gql [3044B] 
+Connector "movie-connector": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:39.866187  149494 control.go:100] [projects/emulator/locations/emulator/services/your-service-id af0d] UpdateResources(): done\nMain schema: sources: schema/schema.gql [3044B] \nConnector \"movie-connector\": sources: movie-connector/mutations.gql [2253B] movie-connector/queries.gql [3733B] \n"}}
+[debug] [2026-03-06T21:23:39.875Z] I0306 14:23:39.875306  149494 codegen.go:80] [connector "movie-connector" javascriptSdk] Generating sources into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:39.875306  149494 codegen.go:80] [connector \"movie-connector\" javascriptSdk] Generating sources into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\n"}}
+[debug] [2026-03-06T21:23:39.879Z] I0306 14:23:39.878998  149494 collector.go:107] schema extensions wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema"
+Generated sources: main/query.gql [8831B] main/mutation.gql [23905B] main/implicit.gql [2031B] main/input.gql [46794B] main/relation.gql [26964B] prelude.gql [80731B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:39.878998  149494 collector.go:107] schema extensions wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/dataconnect/.dataconnect/schema\"\nGenerated sources: main/query.gql [8831B] main/mutation.gql [23905B] main/implicit.gql [2031B] main/input.gql [46794B] main/relation.gql [26964B] prelude.gql [80731B] \n"}}
+[debug] [2026-03-06T21:23:39.879Z] I0306 14:23:39.879191  149494 collector.go:107] connector "movie-connector" javascriptSdk wrote into "/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk"
+Generated sources: index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] .guides/setup.md [580B] index.d.ts [906B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:39.879191  149494 collector.go:107] connector \"movie-connector\" javascriptSdk wrote into \"/home/kbeck/Documents/Projects/codelab-dataconnect-web/app/src/lib/dataconnect-sdk\"\nGenerated sources: index.cjs.js [161B] package.json [641B] README.md [2769B] .guides/usage.md [427B] .guides/config.json [236B] esm/index.esm.js [126B] esm/package.json [17B] .guides/setup.md [580B] index.d.ts [906B] \n"}}
+[debug] [2026-03-06T21:23:39.879Z] I0306 14:23:39.879418  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation
+I0306 14:23:39.879429  149494 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0306 14:23:39.879418  149494 installsdk.go:55] Package @movie/dataconnect is already installed. Skipping installation\nI0306 14:23:39.879429  149494 load.go:109] Finished reloading\n"}}
